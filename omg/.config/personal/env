@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+export STOW_FOLDERS="omg,personal,tmux,zsh"
+export DOTFILES=$HOME/.dotfiles
+
+increaseWatchers() {
+    sudo sysctl fs.inotify.max_user_watches=65536
+    sudo sysctl -p
+}
+
+appendPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+prependPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
+commitDotFiles() {
+    pushd $DOTFILES
+    pushd personal
+    git commit -a -m "alias commit"
+    git push origin master
+    popd
+    git commit -a -m "aliased commit"
+    git push origin master
+    popd
+}
