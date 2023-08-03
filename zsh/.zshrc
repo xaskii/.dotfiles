@@ -42,7 +42,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(completion)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_profile
 
-if [ command -v brew &> /dev/null ]; then
+if command -v brew &> /dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 fi
