@@ -61,6 +61,7 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 alias p10kupdate='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'
 alias ls='ls -G'
 alias vim='nvim'
+alias sen='yt-dlp -S "res:720"'
 alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata'
 alias dim='echo $(tput cols) columns x $(tput lines) rows'
 alias transfer='rsync -vahzP'
