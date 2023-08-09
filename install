@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
+# set in $HOME/.config/personal/env
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="omg,personal,tmux,zsh"
+    STOW_FOLDERS="omg,personal,tmux,zsh,nvim"
 fi
 
 if [[ -z $DOTFILES ]]; then
