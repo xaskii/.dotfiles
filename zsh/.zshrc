@@ -30,7 +30,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # zstyle ':omz:update' frequency 13
 # DISABLE_MAGIC_FUNCTIONS="true"
-DISABLE_LS_COLORS="true"
+# DISABLE_LS_COLORS="true"
 DISABLE_AUTO_TITLE="true"
 # ENABLE_CORRECTION="true"
 # COMPLETION_WAITING_DOTS="true"
@@ -63,7 +63,6 @@ alias zshref="omz reload" #
 # alias zshref='source ~/.zshrc'
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias p10kupdate='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'
-alias ls='ls -G'
 alias vim='nvim'
 alias sen='yt-dlp -S "res:720"'
 alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata'
