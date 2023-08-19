@@ -81,7 +81,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Setting fd as default source for fzf
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude ".git"'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .cache'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # paths
 _fzf_compgen_path() {
