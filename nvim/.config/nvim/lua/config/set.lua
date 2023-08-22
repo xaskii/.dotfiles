@@ -1,3 +1,5 @@
+vim.cmd('colorscheme rose-pine')
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
