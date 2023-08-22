@@ -23,6 +23,7 @@ if command -v gdircolors &> /dev/null; then
   eval "$(gdircolors)"
 fi
 
+prependPath "/usr/local/go/bin"
 prependPath "$HOME/bin"
 prependPath "$HOME/.local/bin"
 prependPath "$HOME/.spicetify"
