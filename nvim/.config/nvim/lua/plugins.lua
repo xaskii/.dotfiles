@@ -32,16 +32,43 @@ return {
       vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
     end
   },
-  -- tpope is a genius
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function ()
+      require('gitsigns').setup()
+    end
+  },
+  {
+    "windwp/nvim-autopairs",
+    -- Optional dependency
+    dependencies = { 'hrsh7th/nvim-cmp' },
+    config = function()
+      require("nvim-autopairs").setup {}
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      local cmp = require('cmp')
+      cmp.event:on(
+      'confirm_done',
+      cmp_autopairs.on_confirm_done()
+      )
+    end,
+  },
+  'tpope/vim-surround',
+  'tpope/vim-sleuth',
+  {
+    'tpope/vim-commentary',
+    config = function()
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = "text",
+        command = "setlocal commentstring=#\\ %s"
+      })
+    end
+  },
   {
     'tpope/vim-fugitive',
     config = function()
       vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
     end
   },
-  'tpope/vim-surround',
-  'tpope/vim-sleuth',
-  'tpope/vim-commentary',
   -- vim training thing
   'ThePrimeagen/vim-be-good'
 }
