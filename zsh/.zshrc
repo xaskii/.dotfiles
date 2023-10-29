@@ -17,7 +17,7 @@ plugins=(
   vscode
   z
   zsh-autosuggestions
-)
+ brew)
 
 export ZSH="$HOME/.oh-my-zsh"
 # ---------- ohmyzsh configuration ----------
@@ -102,6 +102,14 @@ export PNPM_HOME="/Users/spring/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+# bun completions
+[ -s "/Users/spring/.bun/_bun" ] && source "/Users/spring/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# idk if true ^^
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

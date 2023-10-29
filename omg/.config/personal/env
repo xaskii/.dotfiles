@@ -9,23 +9,23 @@ increaseWatchers() {
 
 appendPath() {
     if [[ "$PATH" != *"$1"* ]]; then
-        export PATH=$PATH:$1
+        export PATH="$PATH:$1"
     fi
 }
 
 prependPath() {
     if [[ "$PATH" != *"$1"* ]]; then
-        export PATH=$1:$PATH
+        export PATH="$1:$PATH"
     fi
 }
 
 commitDotFiles() {
-    pushd $DOTFILES
-    pushd personal
+    pushd "$DOTFILES" || return
+    pushd personal || return 
     git commit -a -m "alias commit"
     git push origin master
-    popd
+    popd || return 
     git commit -a -m "aliased commit"
     git push origin master
-    popd
+    popd || return 
 }
