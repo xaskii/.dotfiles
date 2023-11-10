@@ -17,7 +17,8 @@ plugins=(
   vscode
   z
   zsh-autosuggestions
- brew)
+  brew
+)
 
 export ZSH="$HOME/.oh-my-zsh"
 # ---------- ohmyzsh configuration ----------
