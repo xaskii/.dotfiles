@@ -23,6 +23,7 @@ return {
       vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
     end,
   },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
     'theprimeagen/harpoon',
     config = function ()
