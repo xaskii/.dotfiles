@@ -55,7 +55,7 @@ fi
 # export MANPATH="/usr/local/man:$MANPATH"
 # export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
-# export $EDITOR="vim"
+export EDITOR="nvim"
 
 alias zshconfig="code ~/.zshrc"
 alias sshconfig="code ~/.ssh/config"

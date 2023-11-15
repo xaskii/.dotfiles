@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-export STOW_FOLDERS="omg,personal,tmux,zsh,nvim"
+export STOW_FOLDERS="omg,personal,tmux,zsh,nvim,kitty"
 export DOTFILES=$HOME/.dotfiles
 
 increaseWatchers() {
