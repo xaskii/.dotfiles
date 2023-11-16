@@ -1,6 +1,12 @@
-# p10k prompt
+# p10k prompt caching thing
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# has to be sourced before oh-my-zsh
+if command -v brew &> /dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 fi
 
 
@@ -47,15 +53,12 @@ VI_MODE_SET_CURSOR=true
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_profile
 
-if command -v brew &> /dev/null; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 export EDITOR="nvim"
+export VISUAL="nvim"
 
 alias zshconfig="code ~/.zshrc"
 alias sshconfig="code ~/.ssh/config"

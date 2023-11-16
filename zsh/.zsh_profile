@@ -1,5 +1,5 @@
+# certain terminals don't have XDG_CONFIG_HOME defined early
 export XDG_CONFIG_HOME=$HOME/.config
-
 export COMFYEDITOR="code"
 PERSONAL=$XDG_CONFIG_HOME/personal
 source "$PERSONAL"/env
