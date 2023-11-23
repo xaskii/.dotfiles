@@ -67,6 +67,7 @@ return {
       vim.api.nvim_create_autocmd('FileType', {
         pattern = "text",
         command = "setlocal commentstring=#\\ %s"
+        -- command = "setlocal commentstring=#\\ %s"
       })
     end
   },
@@ -76,6 +77,29 @@ return {
       vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
     end
   },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  },
   -- vim training thing
-  'ThePrimeagen/vim-be-good'
+  'ThePrimeagen/vim-be-good',
+  {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('lualine').setup({
+        sections = {
+          lualine_b = { 'diff', 'diagnostics' }
+        }
+      })
+    end
+  }
 }
