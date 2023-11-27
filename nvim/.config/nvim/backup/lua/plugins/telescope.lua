@@ -24,9 +24,12 @@ return {
         },
         pickers = {
           find_files = {
-            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-            hidden = true
+            -- find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+            find_command = { "fd", "-tf", "-HI", "--strip-cwd-prefix", "-E", ".git"},
           },
+          live_grep = {
+            hidden = true
+          }
         },
       }
       telescope.load_extension('fzf')

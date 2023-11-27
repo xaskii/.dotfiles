@@ -1,6 +1,7 @@
 return {
   {
-    'rose-pine/neovim', name = 'rose-pine',
+    'rose-pine/neovim',
+    name = 'rose-pine',
     priority = 1000,
     config = function()
       require('rose-pine').setup({
@@ -26,7 +27,7 @@ return {
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
     'theprimeagen/harpoon',
-    config = function ()
+    config = function()
       local mark = require("harpoon.mark")
       local ui = require("harpoon.ui")
 
@@ -41,7 +42,7 @@ return {
   },
   {
     'lewis6991/gitsigns.nvim',
-    config = function ()
+    config = function()
       require('gitsigns').setup()
     end
   },
@@ -54,8 +55,8 @@ return {
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')
       local cmp = require('cmp')
       cmp.event:on(
-      'confirm_done',
-      cmp_autopairs.on_confirm_done()
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
       )
     end,
   },
