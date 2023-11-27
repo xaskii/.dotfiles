@@ -14,3 +14,4 @@ vim.g.loaded_node_provider = 0
 
 vim.g.autoformat = false
 vim.opt.clipboard = ""
+vim.opt.list = false

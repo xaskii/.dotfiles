@@ -1,3 +1,4 @@
+-- if true then return {} end -- to disable lualine changes
 -- taken from evil-lualine:
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
 return {
@@ -223,6 +224,6 @@ return {
     })
 
     -- Now don't forget to initialize lualine
-    -- lualine.setup(config)
+    lualine.setup(config)
   end,
 }
