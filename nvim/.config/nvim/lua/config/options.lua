@@ -14,4 +14,5 @@ vim.g.loaded_node_provider = 0
 
 vim.g.autoformat = false
 vim.opt.clipboard = ""
+-- prevents the fuckery with tab characters
 vim.opt.list = false
