@@ -106,12 +106,12 @@ export PNPM_HOME="/Users/spring/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-# bun completions
-[ -s "/Users/spring/.bun/_bun" ] && source "/Users/spring/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 # idk if true ^^
