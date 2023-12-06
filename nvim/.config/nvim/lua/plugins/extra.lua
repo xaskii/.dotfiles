@@ -19,6 +19,19 @@ return {
     "rcarriga/nvim-notify",
     opts = { level = 3, render = "minimal", stages = "static" },
   },
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      config = function()
+        -- HOW TF DO YOU GET RID OF THE SNIPPETS LMFAOOO
+        -- surely there's a bettery way to do this
+        require("luasnip.loaders.from_vscode").lazy_load({
+          exclude = { "markdown", "text" },
+        })
+      end,
+    },
+  },
   -- disabling the troll hiding
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -34,19 +47,18 @@ return {
       },
     },
   },
-  --  i don't have enough screen for sidebar T_T
-  -- { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       highlight = {
         -- markdown treesitter hides bulletpoints
-        disable = { "markdown" }
-      }
-    }
+        disable = { "markdown" },
+      },
+    },
   },
   -- just testing out disabling some of this stuff
   -- { "akinsho/bufferline.nvim", enabled = false },
+  { "nvim-treesitter/nvim-treesitter-context", enabled = false },
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
   { "echasnovski/mini.indentscope", enabled = false }, -- animated indent guides
   -- { "nvimdev/dashboard-nvim", enabled = false }, -- looks pretty cool tbh
