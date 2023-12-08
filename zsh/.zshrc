@@ -3,10 +3,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# has to be sourced before oh-my-zsh
+# has to be sourced before oh-my-zsh so completions get refreshed
 if command -v brew &> /dev/null; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
 fi
 
 
@@ -71,7 +71,7 @@ alias p10kupdate='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerleve
 alias sen='yt-dlp -S "res:720"'
 alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata'
 alias dim='echo $(tput cols) columns x $(tput lines) rows'
-alias transfer='rsync -vahzP'
+alias transfer='rsync -vahP'
 alias stop='ssh -O stop'
 alias bu="brew update && brew upgrade && brew cleanup"
 alias cboard='echo "" | clipcopy && echo "clipboard cleared"'
