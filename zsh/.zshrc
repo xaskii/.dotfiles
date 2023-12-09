@@ -77,7 +77,7 @@ alias bu="brew update && brew upgrade && brew cleanup"
 alias cboard='echo "" | clipcopy && echo "clipboard cleared"'
 alias vsi='vcsi'
 
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
