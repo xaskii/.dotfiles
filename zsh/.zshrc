@@ -11,8 +11,11 @@ fi
 
 
 plugins=(
+  zsh-autosuggestions
   zsh-syntax-highlighting # slow af on wsl/ssh
+  brew
   colored-man-pages
+  common-aliases
   docker
   docker-compose
   git
@@ -22,8 +25,6 @@ plugins=(
   vi-mode
   vscode
   z
-  zsh-autosuggestions
-  brew
 )
 
 export ZSH="$HOME/.oh-my-zsh"
