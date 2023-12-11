@@ -16,9 +16,7 @@ done
 if [[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]]; then
     export BROWSER=wslview
 fi
-if command -v brew &> /dev/null; then
-  prependPath "$(brew --prefix)/opt/homebrew/Cellar/p7zip/17.05/bin" # add 7zip to path
-fi
+
 if command -v gdircolors &> /dev/null; then
   eval "$(gdircolors)"
 fi
@@ -26,6 +24,7 @@ fi
 prependPath "/usr/local/go/bin"
 prependPath "$HOME/bin"
 prependPath "$HOME/.local/bin"
+prependPath "$HOME/local/bin"
 prependPath "$HOME/.spicetify"
 prependPath "$HOME/.rvm/bin"
 prependPath "$HOME:/snap/bin"
@@ -36,7 +35,7 @@ catr() {
 }
 
 validateYaml() {
-    python -c 'import yaml,sys;yaml.safe_load(sys.stdin)' < "$1"
+    python3 -c 'import yaml,sys;yaml.safe_load(sys.stdin)' < "$1"
 }
 
 eslintify() {
