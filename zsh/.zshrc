@@ -13,6 +13,7 @@ fi
 plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting # slow af on wsl/ssh
+  zsh-vi-mode
   brew
   colored-man-pages
   docker
@@ -21,7 +22,6 @@ plugins=(
   macos
   pip
   ubuntu
-  vi-mode
   vscode
   z
 )
