@@ -11,9 +11,6 @@ fi
 
 
 plugins=(
-  zsh-autosuggestions
-  zsh-syntax-highlighting # slow af on wsl/ssh
-  zsh-vi-mode
   brew
   colored-man-pages
   docker
@@ -24,6 +21,11 @@ plugins=(
   ubuntu
   vscode
   z
+
+  # custom plugins
+  zsh-autosuggestions
+  zsh-syntax-highlighting # slow af on wsl/ssh
+  zsh-vi-mode
 )
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -47,7 +49,8 @@ DISABLE_AUTO_TITLE="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 # -- plugin --
 ZSH_AUTOSUGGEST_STRATEGY=(completion)
-VI_MODE_SET_CURSOR=true
+ZVM_INIT_MODE=sourcing
+# VI_MODE_SET_CURSOR=true
 # VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true # SLOW
 # ---------- ohmyzsh configuration ----------
 source $ZSH/oh-my-zsh.sh
