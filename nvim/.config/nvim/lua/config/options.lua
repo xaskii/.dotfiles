@@ -14,5 +14,11 @@ vim.g.loaded_node_provider = 0
 
 vim.g.autoformat = false
 vim.opt.clipboard = ""
--- prevents the fuckery with tab characters
+
+-- tab character weirdness, idk if I want
 vim.opt.list = false
+-- vim.opt.scrolloff = 8 -- default is 4
+
+-- mini options
+-- disables animations for mini-indentscope, but keeps the text object selection thing
+vim.g.miniindentscope_disable = true

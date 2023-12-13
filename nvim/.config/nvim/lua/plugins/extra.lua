@@ -17,7 +17,11 @@ return {
   -- this doesn't make the notifs smaller idk why
   {
     "rcarriga/nvim-notify",
-    opts = { level = 3, render = "minimal", stages = "static" },
+    opts = {
+      -- level = 3,
+      -- render = "minimal",
+      stages = "static",
+    },
   },
   {
     "L3MON4D3/LuaSnip",
@@ -56,11 +60,30 @@ return {
       },
     },
   },
+  {
+    "folke/flash.nvim",
+    opts = { modes = { search = { enabled = false } } },
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = {
+      sources = {
+        {
+          -- disabling the word completion, it's tried in vs-code for a bit and didn't like it
+          name = "nvim_lsp",
+          entry_filter = function(entry, ctx)
+            return require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
+          end,
+        },
+      },
+    },
+  },
+
   -- just testing out disabling some of this stuff
   -- { "akinsho/bufferline.nvim", enabled = false },
-  { "nvim-treesitter/nvim-treesitter-context", enabled = false },
-  { "lukas-reineke/indent-blankline.nvim", enabled = false },
-  { "echasnovski/mini.indentscope", enabled = false }, -- animated indent guides
+  { "nvim-treesitter/nvim-treesitter-context", enabled = false }, -- leaves functions at top of buffer
+
+
   -- { "nvimdev/dashboard-nvim", enabled = false }, -- looks pretty cool tbh
   -- { "rcarriga/nvim-notify", enabled = false },
 }

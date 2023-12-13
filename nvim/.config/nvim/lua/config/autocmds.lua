@@ -8,4 +8,10 @@ vim.api.nvim_create_autocmd("FileType", {
   -- command = "setlocal commentstring=#\\ %s"
 })
 
--- I don't have any rn
+-- idk if I want this yet
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = { "lua" },
+--   callback = function()
+--     vim.b.autoformat = true
+--   end,
+-- })
