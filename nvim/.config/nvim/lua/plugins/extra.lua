@@ -8,9 +8,7 @@ return {
         variant = "auto",
         disable_background = true,
         disable_float_background = true,
-        dim_nc_background = false,
       })
-      -- vim.cmd([[colorscheme rose-pine]]) -- not needed inside LazyVim
     end,
   },
   { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },
@@ -78,11 +76,40 @@ return {
       },
     },
   },
+  {
+    -- disabling insta-showing marks
+    "folke/which-key.nvim",
+    opts = {
+      triggers_nowait = {
+        -- marks
+        -- "`",
+        -- "'",
+        -- "g`",
+        -- "g'",
+        -- registers
+        '"',
+        "<c-r>",
+        -- spelling
+        "z=",
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = { sh = { "shellcheck" } },
+    },
+  },
+  -- {
+  --   "stevearc/conform.nvim",
+  --   opts = {
+  --     formatters_by_ft = { sh = { "shellharden" } },
+  --   },
+  -- },
 
   -- just testing out disabling some of this stuff
   -- { "akinsho/bufferline.nvim", enabled = false },
   { "nvim-treesitter/nvim-treesitter-context", enabled = false }, -- leaves functions at top of buffer
-
 
   -- { "nvimdev/dashboard-nvim", enabled = false }, -- looks pretty cool tbh
   -- { "rcarriga/nvim-notify", enabled = false },

@@ -15,3 +15,13 @@ vim.api.nvim_create_autocmd("FileType", {
 --     vim.b.autoformat = true
 --   end,
 -- })
+--
+-- Taken from folke
+-- Fixing treesitter concealing
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "json", "jsonc" },
+  callback = function()
+    -- vim.wo.spell = false -- idk what this does
+    vim.wo.conceallevel = 0
+  end,
+})
