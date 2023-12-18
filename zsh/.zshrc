@@ -50,6 +50,7 @@ DISABLE_AUTO_TITLE="true"
 # -- plugin --
 ZSH_AUTOSUGGEST_STRATEGY=(completion)
 VI_MODE_SET_CURSOR=true
+VI_MODE_DISABLE_CLIPBOARD=true
 # VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true # SLOW
 # ---------- ohmyzsh configuration ----------
 source $ZSH/oh-my-zsh.sh
