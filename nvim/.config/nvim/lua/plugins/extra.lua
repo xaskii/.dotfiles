@@ -1,19 +1,5 @@
 return {
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    priority = 1000,
-    config = function()
-      require("rose-pine").setup({
-        variant = "auto",
-        disable_background = true,
-        disable_float_background = true,
-      })
-    end,
-  },
-  { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },
-  -- this doesn't make the notifs smaller idk why
-  {
     "rcarriga/nvim-notify",
     opts = {
       -- level = 3,
@@ -26,8 +12,7 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       config = function()
-        -- HOW TF DO YOU GET RID OF THE SNIPPETS LMFAOOO
-        -- surely there's a bettery way to do this
+        -- the markdown snippets are kinda crazy
         require("luasnip.loaders.from_vscode").lazy_load({
           exclude = { "markdown", "text" },
         })
@@ -107,10 +92,31 @@ return {
   --   },
   -- },
 
+  -- indentation fuckery
+  {
+    "lukas-reineke/indent-blankline.nvim", -- regular indentation symbols
+    opts = {
+      indent = {
+        char = "▏",
+        tab_char = "▏",
+      }
+    }
+  },
+  {
+    "echasnovski/mini.indentscope",
+    opts = {
+      symbol = "▏",
+      draw = {
+        delay = 0,
+        animation = require("mini.indentscope").gen_animation.none(),
+      },
+      options = {
+        indent_at_cursor = false,
+      },
+    },
+  },
   -- just testing out disabling some of this stuff
-  -- { "akinsho/bufferline.nvim", enabled = false },
   { "nvim-treesitter/nvim-treesitter-context", enabled = false }, -- leaves functions at top of buffer
-
-  -- { "nvimdev/dashboard-nvim", enabled = false }, -- looks pretty cool tbh
+  { "nvimdev/dashboard-nvim", enabled = false }, -- looks pretty cool tbh
   -- { "rcarriga/nvim-notify", enabled = false },
 }
