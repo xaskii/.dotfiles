@@ -13,8 +13,6 @@ return {
   --     })
   --   end,
   -- },
-  -- { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },
-
   -- catppuccin
   {
     "catppuccin/nvim",
@@ -22,9 +20,23 @@ return {
     lazy = true,
     opts = { transparent_background = true },
   },
-  { "LazyVim/LazyVim", opts = { colorscheme = "catppuccin" } },
+  -- gruvbox
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   opts = {
+  --     transparent_mode = true,
+  --   },
+  -- },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      -- colorscheme = "rose-pine",
+      colorscheme = "catppuccin",
+      -- colorscheme = "gruvbox",
+    },
+  },
 
-  -- TOKYO NIGHT
+  -- TOKYO NIGHT transparency
   -- {
   --   "folke/tokyonight.nvim",
   --   opts = { transparent = true },

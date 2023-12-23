@@ -99,8 +99,8 @@ return {
       indent = {
         char = "▏",
         tab_char = "▏",
-      }
-    }
+      },
+    },
   },
   {
     "echasnovski/mini.indentscope",
