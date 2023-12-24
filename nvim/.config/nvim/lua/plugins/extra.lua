@@ -1,14 +1,5 @@
 return {
   {
-    -- TODO: read docs and fix this
-    "rcarriga/nvim-notify",
-    opts = {
-      -- level = 3,
-      -- render = "minimal",
-      stages = "static",
-    },
-  },
-  {
     "L3MON4D3/LuaSnip",
     dependencies = {
       "rafamadriz/friendly-snippets",
@@ -112,7 +103,30 @@ return {
   { "nvimdev/dashboard-nvim", enabled = false }, -- looks pretty cool tbh
   -- { "rcarriga/nvim-notify", enabled = false },
 
-  -- trying out disabling ui stuff
-  { "folke/noice.nvim", enabled = false },
-  { "rcarriga/nvim-notify", enabled = false },
+  -- tweaking ui stuff
+  {
+    "folke/noice.nvim",
+    -- enabled = false,
+    opts = function(_, opts)
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = { skip = true },
+      })
+      opts.cmdline = { view = "cmdline" }
+      opts.presets.lsp_doc_border = true
+      opts.presets.command_palette = false
+    end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    enabled = false,
+    opts = {
+      -- render = "compact",
+      stages = "static",
+      timeout = 1500,
+    },
+  },
 }

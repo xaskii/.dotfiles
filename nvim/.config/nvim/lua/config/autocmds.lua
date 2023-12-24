@@ -28,8 +28,16 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- Disabling indentation guides for man pages
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "man" },
+  pattern = { "man", "noice" },
   callback = function()
     vim.b.miniindentscope_disable = true
+  end,
+})
+
+-- Enabling word wrap for help pages
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "help" },
+  callback = function()
+    vim.b.wrap = true
   end,
 })
