@@ -12,7 +12,7 @@ fi
 
 plugins=(
   brew
-  colored-man-pages
+  # colored-man-pages
   docker
   docker-compose
   git

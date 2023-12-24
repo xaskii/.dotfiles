@@ -21,6 +21,10 @@ if command -v gdircolors &> /dev/null; then
   eval "$(gdircolors)"
 fi
 
+if command -v nvim &> /dev/null; then
+  export MANPAGER="nvim +Man!"
+fi
+
 prependPath "/usr/local/go/bin"
 prependPath "$HOME/bin"
 prependPath "$HOME/.local/bin"
