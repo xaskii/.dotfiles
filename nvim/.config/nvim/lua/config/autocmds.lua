@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "json", "jsonc", "yaml" },
   callback = function()
-    -- vim.wo.spell = false -- idk what this does
+    vim.wo.spell = false
     vim.wo.conceallevel = 0
   end,
 })

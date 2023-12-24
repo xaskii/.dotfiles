@@ -44,6 +44,7 @@ return {
       },
     },
   },
+
   {
     -- disabling insta-showing marks
     "folke/which-key.nvim",
@@ -75,58 +76,6 @@ return {
   --   },
   -- },
 
-  -- indentation fuckery
-  {
-    "lukas-reineke/indent-blankline.nvim", -- regular indentation symbols
-    opts = {
-      indent = {
-        char = "▏",
-        tab_char = "▏",
-      },
-    },
-  },
-  {
-    "echasnovski/mini.indentscope",
-    opts = {
-      symbol = "▏",
-      draw = {
-        delay = 0,
-        animation = require("mini.indentscope").gen_animation.none(),
-      },
-      options = {
-        indent_at_cursor = false,
-      },
-    },
-  },
   -- just testing out disabling some of this stuff
   { "nvim-treesitter/nvim-treesitter-context", enabled = false }, -- leaves functions at top of buffer
-  { "nvimdev/dashboard-nvim", enabled = false }, -- looks pretty cool tbh
-  -- { "rcarriga/nvim-notify", enabled = false },
-
-  -- tweaking ui stuff
-  {
-    "folke/noice.nvim",
-    -- enabled = false,
-    opts = function(_, opts)
-      table.insert(opts.routes, {
-        filter = {
-          event = "notify",
-          find = "No information available",
-        },
-        opts = { skip = true },
-      })
-      opts.cmdline = { view = "cmdline" }
-      opts.presets.lsp_doc_border = true
-      opts.presets.command_palette = false
-    end,
-  },
-  {
-    "rcarriga/nvim-notify",
-    enabled = false,
-    opts = {
-      -- render = "compact",
-      stages = "static",
-      timeout = 1500,
-    },
-  },
 }
