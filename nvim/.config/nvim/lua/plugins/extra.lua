@@ -1,5 +1,6 @@
 return {
   {
+    -- TODO: read docs and fix this
     "rcarriga/nvim-notify",
     opts = {
       -- level = 3,
@@ -31,15 +32,6 @@ return {
           hide_by_name = { ".git", ".DS_Store", "thumbs.db" },
         },
         never_show = {},
-      },
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      highlight = {
-        -- markdown treesitter hides bulletpoints
-        disable = { "markdown" },
       },
     },
   },
@@ -119,4 +111,8 @@ return {
   { "nvim-treesitter/nvim-treesitter-context", enabled = false }, -- leaves functions at top of buffer
   { "nvimdev/dashboard-nvim", enabled = false }, -- looks pretty cool tbh
   -- { "rcarriga/nvim-notify", enabled = false },
+
+  -- trying out disabling ui stuff
+  { "folke/noice.nvim", enabled = false },
+  { "rcarriga/nvim-notify", enabled = false },
 }

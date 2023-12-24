@@ -9,19 +9,27 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- idk if I want this yet
--- vim.api.nvim_create_autocmd({ "FileType" }, {
---   pattern = { "lua" },
---   callback = function()
---     vim.b.autoformat = true
---   end,
--- })
---
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "lua" },
+  callback = function()
+    vim.b.autoformat = true
+  end,
+})
+
 -- Taken from folke
 -- Fixing treesitter concealing
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "json", "jsonc" },
+  pattern = { "json", "jsonc", "yaml" },
   callback = function()
     -- vim.wo.spell = false -- idk what this does
     vim.wo.conceallevel = 0
+  end,
+})
+
+-- Disabling indentation guides for man pages
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "man" },
+  callback = function()
+    vim.b.miniindentscope_disable = true
   end,
 })
