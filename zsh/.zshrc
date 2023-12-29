@@ -40,7 +40,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # zstyle ':omz:update' frequency 13
 # DISABLE_MAGIC_FUNCTIONS="true"
 # DISABLE_LS_COLORS="true"
-DISABLE_AUTO_TITLE="true"
+# DISABLE_AUTO_TITLE="true"
 # ENABLE_CORRECTION="true"
 # COMPLETION_WAITING_DOTS="true"
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"

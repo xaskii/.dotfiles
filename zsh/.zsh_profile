@@ -7,12 +7,21 @@ for i in $(find -L "$PERSONAL"); do
     source "$i"
 done
 
+prependPath "/usr/local/go/bin"
+prependPath "$HOME/bin"
+prependPath "$HOME/.local/bin"
+prependPath "$HOME/local/bin"
+prependPath "$HOME/.spicetify"
+prependPath "$HOME/.rvm/bin"
+prependPath "$HOME:/snap/bin"
+
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 
 # export CC="clang"
 # export CXX="clang++"
 
+# conditional environment variables
 if [[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]]; then
     export BROWSER=wslview
 fi
@@ -24,15 +33,6 @@ fi
 if command -v nvim &> /dev/null; then
   export MANPAGER="nvim +Man!"
 fi
-
-prependPath "/usr/local/go/bin"
-prependPath "$HOME/bin"
-prependPath "$HOME/.local/bin"
-prependPath "$HOME/local/bin"
-prependPath "$HOME/.spicetify"
-prependPath "$HOME/.rvm/bin"
-prependPath "$HOME:/snap/bin"
-
 
 catr() {
     tail -n "+$1" "$3" | head -n "$(($2 - $1 + 1))"
