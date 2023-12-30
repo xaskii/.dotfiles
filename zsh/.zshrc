@@ -18,6 +18,7 @@ plugins=(
   git
   macos
   pip
+  tmux
   ubuntu
   vi-mode
   vscode
