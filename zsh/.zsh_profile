@@ -3,8 +3,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export COMFYEDITOR="code"
 PERSONAL=$XDG_CONFIG_HOME/personal
 source "$PERSONAL"/env
-for i in $(find -L "$PERSONAL"); do
-    source "$i"
+for x in "$PERSONAL"/*; do
+  source "$x"
 done
 
 prependPath "/usr/local/go/bin"

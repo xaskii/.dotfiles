@@ -25,8 +25,9 @@ plugins=(
   z
 
   # custom plugins
-  zsh-autosuggestions
-  zsh-syntax-highlighting # slow af on wsl/ssh
+  # zsh-syntax-highlighting # slow af on wsl/ssh
+  zsh-nvm
+  zsh-autosuggestions # supposed to be sourced last but idk
 )
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -39,7 +40,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # zstyle ':omz:update' frequency 13
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_AUTO_UPDATE=true
+DISABLE_MAGIC_FUNCTIONS=true
 # DISABLE_LS_COLORS="true"
 # DISABLE_AUTO_TITLE="true"
 # ENABLE_CORRECTION="true"
@@ -48,15 +50,22 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
-# -- plugin --
+# -- plugin options --
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_AUTOSUGGEST_STRATEGY=(completion)
+
 VI_MODE_SET_CURSOR=true
 VI_MODE_DISABLE_CLIPBOARD=true
+
+NVM_COMPLETION=true
+NVM_DIR="$HOME/.config/nvm"
+NVM_LAZY_LOAD=true
+NVM_LAZY_LOAD_EXTRA_COMMANDS=(vim nvim) # will have to update
 # VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true # SLOW
 # ---------- ohmyzsh configuration ----------
 source $ZSH/oh-my-zsh.sh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source $HOME/.zsh_profile
-
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # export LANG=en_US.UTF-8
@@ -71,7 +80,6 @@ alias zshref="omz reload" #
 # alias zshref='source ~/.zshrc'
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias vim='nvim'
-alias p10kupdate='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'
 alias sen='yt-dlp -S "res:720"'
 alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata'
 alias dim='echo $(tput cols) columns x $(tput lines) rows'
@@ -81,9 +89,9 @@ alias bu="brew update && brew upgrade && brew cleanup"
 alias cboard='echo "" | clipcopy && echo "clipboard cleared"'
 alias vsi='vcsi'
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# export NVM_DIR="$HOME/.config/nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # fzf stuff
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -100,8 +108,6 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
