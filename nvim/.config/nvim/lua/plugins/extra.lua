@@ -1,5 +1,10 @@
 return {
   {
+    "tpope/vim-sleuth",
+    lazy = true,
+    event = "VeryLazy",
+  },
+  {
     "L3MON4D3/LuaSnip",
     dependencies = {
       "rafamadriz/friendly-snippets",

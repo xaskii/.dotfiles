@@ -4,6 +4,8 @@
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
 return {
   "nvim-lualine/lualine.nvim",
+  -- enabled = false,
+  -- lazy = false,
   -- Have to use config instead of options to override all of the LazyVim settings
   config = function()
     -- Eviline config for lualine
@@ -146,6 +148,7 @@ return {
 
     ins_left({
       "filename",
+      path = 1,
       cond = conditions.buffer_not_empty,
       color = { fg = colors.magenta, gui = "bold" },
     })
@@ -177,8 +180,9 @@ return {
       -- Lsp server name .
       function()
         local msg = "No Active Lsp"
-        local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-        local clients = vim.lsp.get_active_clients()
+        local buf_ft = vim.api.nvim_get_option_value("filename", { buf = 0 })
+        local clients = vim.lsp.get_clients()
+
         if next(clients) == nil then
           return msg
         end

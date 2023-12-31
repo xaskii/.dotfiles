@@ -7,16 +7,19 @@ return {
     "lukas-reineke/indent-blankline.nvim", -- regular indentation symbols
     opts = {
       indent = {
+        repeat_linebreak = true,
         char = "▏",
         tab_char = "▏",
       },
     },
   },
   {
+    -- enabled = false, -- doesn't support word wrapping yet like blankline
     "echasnovski/mini.indentscope",
     opts = {
       symbol = "▏",
       draw = {
+        priority = 100,
         delay = 0,
         animation = require("mini.indentscope").gen_animation.none(),
       },
