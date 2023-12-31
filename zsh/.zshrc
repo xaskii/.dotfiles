@@ -25,7 +25,7 @@ plugins=(
   z
 
   # custom plugins
-  # zsh-syntax-highlighting # slow af on wsl/ssh
+  zsh-syntax-highlighting # slow af on wsl/ssh
   zsh-nvm
   zsh-autosuggestions # supposed to be sourced last but idk
 )
@@ -41,7 +41,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # zstyle ':omz:update' frequency 13
 DISABLE_AUTO_UPDATE=true
-DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS=true
 # DISABLE_LS_COLORS="true"
 # DISABLE_AUTO_TITLE="true"
 # ENABLE_CORRECTION="true"
