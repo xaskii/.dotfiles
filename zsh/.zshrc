@@ -13,8 +13,8 @@ fi
 plugins=(
   brew
   # colored-man-pages
-  docker
-  docker-compose
+  # docker
+  # docker-compose
   git
   macos
   pip
@@ -54,14 +54,18 @@ DISABLE_AUTO_UPDATE=true
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_AUTOSUGGEST_STRATEGY=(completion)
 
+ZSHZ_TILDE=1
+ZSHZ_NO_RESOLVE_SYMLINKS=1
+ZSHZ_CASE=smart
+
 VI_MODE_SET_CURSOR=true
 VI_MODE_DISABLE_CLIPBOARD=true
+# VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true # SLOW
 
 NVM_COMPLETION=true
 NVM_DIR="$HOME/.config/nvm"
 NVM_LAZY_LOAD=true
 NVM_LAZY_LOAD_EXTRA_COMMANDS=(vim nvim) # will have to update
-# VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true # SLOW
 # ---------- ohmyzsh configuration ----------
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -85,8 +89,7 @@ alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata'
 alias dim='echo $(tput cols) columns x $(tput lines) rows'
 alias transfer='rsync -vahP'
 alias stop='ssh -O stop'
-alias bu="brew update && brew upgrade && brew cleanup"
-alias cboard='echo "" | clipcopy && echo "clipboard cleared"'
+alias clipclear='echo "" | clipcopy && echo "clipboard cleared"'
 alias vsi='vcsi'
 
 # export NVM_DIR="$HOME/.config/nvm"

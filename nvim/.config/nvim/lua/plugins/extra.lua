@@ -1,4 +1,5 @@
 return {
+  { "ThePrimeagen/vim-be-good" },
   {
     "tpope/vim-sleuth",
     lazy = true,
