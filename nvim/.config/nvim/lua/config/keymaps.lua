@@ -20,6 +20,6 @@ vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { silent = true, desc = "Save buf
 -- next greatest remap ever : asbjornHaland
 -- copying to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" })
-vim.keymap.set({ "n", "v" }, "<leader>Y", [["+Y]], { desc = "Yank end of line to clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>Y", [["+y$]], { desc = "Yank until end of line to clipboard" })
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to clipboard" })
