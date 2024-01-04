@@ -18,6 +18,7 @@ plugins=(
   git
   macos
   pip
+  python
   tmux
   ubuntu
   vi-mode
