@@ -1,6 +1,16 @@
-if true then
-  return {}
-end -- to disable lualine changes
+-- if true then
+--   return {
+--     {
+--       "nvim-lualine/lualine.nvim",
+--       opts = {
+--         options = {
+--           component_separators = "",
+--           section_separators = "",
+--         },
+--       },
+--     },
+--   }
+-- end -- to disable lualine changes
 
 -- taken from evil-lualine:
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
@@ -9,11 +19,11 @@ return {
   -- enabled = false,
   -- lazy = false,
   -- Have to use config instead of options to override all of the LazyVim settings
-  config = function()
-    -- Eviline config for lualine
+  opts = function()
+    -- edited Eviline config for lualine
     -- Author: shadmansaleh
     -- Credit: glepnir
-    local lualine = require("lualine")
+    local Util = require("lazyvim.util")
 
       -- Color table for highlights
       -- stylua: ignore
@@ -51,6 +61,8 @@ return {
         -- Disable sections and component separators
         component_separators = "",
         section_separators = "",
+        globalstatus = true,
+        disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
         theme = {
           -- We are going to use lualine_c an lualine_x as left and
           -- right section. Both are highlighted by c theme .  So we
@@ -88,6 +100,7 @@ return {
         lualine_c = {},
         lualine_x = {},
       },
+      extensions = { "neo-tree", "lazy" },
     }
 
     -- Inserts a component in lualine_c at left section
@@ -148,16 +161,19 @@ return {
       cond = conditions.buffer_not_empty,
     })
 
+    -- ins_left(Util.lualine.root_dir()) -- shows root git directory
+    ins_left({ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } })
     ins_left({
-      "filename",
-      path = 0, -- just the filename
-      cond = conditions.buffer_not_empty,
-      color = { fg = colors.magenta, gui = "bold" },
+      Util.lualine.pretty_path(), -- lazyvim filepath shortening
+      color = { gui = "bold" },
     })
 
-    ins_left({ "location" })
-
-    ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
+    -- ins_left({
+    --   "filename",
+    --   path = 0, -- just the filename
+    --   cond = conditions.buffer_not_empty,
+    --   color = { fg = colors.magenta, gui = "bold" },
+    -- })
 
     ins_left({
       "diagnostics",
@@ -201,6 +217,9 @@ return {
     --   icon = "",
     --   color = { fg = "#ffffff", gui = "bold" },
     -- })
+    --
+    ins_right({ "location" })
+    ins_right({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
     -- Add components to right sections
     ins_right({
@@ -214,6 +233,7 @@ return {
       "fileformat",
       fmt = string.upper,
       icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+      cond = conditions.hide_in_width,
       color = { fg = colors.green, gui = "bold" },
     })
 
@@ -244,6 +264,6 @@ return {
     })
 
     -- Now don't forget to initialize lualine
-    lualine.setup(config)
+    return config
   end,
 }
