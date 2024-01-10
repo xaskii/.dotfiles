@@ -15,6 +15,7 @@ plugins=(
   # colored-man-pages
   # docker
   # docker-compose
+  # extract
   git
   macos
   pip

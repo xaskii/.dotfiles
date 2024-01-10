@@ -47,6 +47,10 @@ eslintify() {
     npx eslint
 }
 
+myfpath() {
+    echo "$FPATH" | tr ":" "\n"
+}
+
 mypath() {
     echo "$PATH" | tr ":" "\n"
 }

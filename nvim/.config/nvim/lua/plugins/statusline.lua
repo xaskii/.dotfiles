@@ -3,6 +3,7 @@
 --     {
 --       "nvim-lualine/lualine.nvim",
 --       opts = {
+--         theme = "auto",
 --         options = {
 --           component_separators = "",
 --           section_separators = "",
@@ -23,7 +24,7 @@ return {
     -- edited Eviline config for lualine
     -- Author: shadmansaleh
     -- Credit: glepnir
-    local Util = require("lazyvim.util")
+    -- local Util = require("lazyvim.util")
 
       -- Color table for highlights
       -- stylua: ignore
@@ -155,25 +156,26 @@ return {
       padding = { right = 1 },
     })
 
-    ins_left({
-      -- filesize component
-      "filesize",
-      cond = conditions.buffer_not_empty,
-    })
+    -- ins_left({
+    --   -- filesize component
+    --   "filesize",
+    --   cond = conditions.buffer_not_empty,
+    -- })
 
     -- ins_left(Util.lualine.root_dir()) -- shows root git directory
     ins_left({ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } })
-    ins_left({
-      Util.lualine.pretty_path(), -- lazyvim filepath shortening
-      color = { gui = "bold" },
-    })
-
     -- ins_left({
-    --   "filename",
-    --   path = 0, -- just the filename
-    --   cond = conditions.buffer_not_empty,
-    --   color = { fg = colors.magenta, gui = "bold" },
+    --   Util.lualine.pretty_path(), -- lazyvim filepath shortening
+    --   color = { gui = "bold" },
     -- })
+
+    ins_left({
+      "filename",
+      path = 1, -- just the filename
+      shorting_target = 50,
+      cond = conditions.buffer_not_empty,
+      color = { fg = colors.magenta, gui = "bold" },
+    })
 
     ins_left({
       "diagnostics",

@@ -30,5 +30,6 @@ vim.opt.scrolloff = 8 -- default is 4, but I like 8
 vim.opt.wrap = true
 vim.opt.breakindent = true -- so important omg I didn't know about this
 vim.opt.linebreak = true
-vim.opt.colorcolumn = "80"
+-- this doesn't play well with word wrap lmfao
+-- vim.opt.colorcolumn = "80"
 vim.g.miniindentscope_disable = true
