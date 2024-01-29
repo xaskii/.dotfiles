@@ -68,6 +68,12 @@ NVM_COMPLETION=true
 NVM_DIR="$HOME/.config/nvm"
 NVM_LAZY_LOAD=true
 NVM_LAZY_LOAD_EXTRA_COMMANDS=(vim nvim) # will have to update
+
+# ---------- optional plugins ---------------
+if [[ -d "$ZSH/custom/plugins/poetry" ]]; then
+  plugins+=(poetry)
+fi
+
 # ---------- ohmyzsh configuration ----------
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
