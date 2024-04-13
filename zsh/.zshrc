@@ -22,9 +22,13 @@ plugins=(
   python
   tmux
   ubuntu
-  vi-mode
+  # vi-mode
+  zsh-vi-mode
   vscode
   z
+
+  # trial
+  # ssh
 
   # custom plugins
   zsh-syntax-highlighting # slow af on wsl/ssh
@@ -60,7 +64,10 @@ ZSHZ_TILDE=1
 ZSHZ_NO_RESOLVE_SYMLINKS=1
 ZSHZ_CASE=smart
 
-VI_MODE_SET_CURSOR=true
+ZVM_CURSOR_STYLE_ENABLED=false
+ZVM_VI_EDITOR=nvim
+
+# VI_MODE_SET_CURSOR=true
 VI_MODE_DISABLE_CLIPBOARD=true
 # VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true # SLOW
 
@@ -70,9 +77,9 @@ NVM_LAZY_LOAD=true
 NVM_LAZY_LOAD_EXTRA_COMMANDS=(vim nvim) # will have to update
 
 # ---------- optional plugins ---------------
-if [[ -d "$ZSH/custom/plugins/poetry" ]]; then
-  plugins+=(poetry)
-fi
+# if [[ -d "$ZSH/custom/plugins/poetry" ]]; then
+#   plugins+=(poetry)
+# fi
 
 # ---------- ohmyzsh configuration ----------
 source $ZSH/oh-my-zsh.sh
@@ -93,7 +100,7 @@ alias zshref="omz reload" #
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias vim='nvim'
 alias sen='yt-dlp -S "res:720"'
-alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata'
+alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata -o "%(uploader)s-%(title)s-[%(id)s].%(ext)s"'
 alias dim='echo $(tput cols) columns x $(tput lines) rows'
 alias transfer='rsync -vahP'
 alias stop='ssh -O stop'
@@ -105,7 +112,11 @@ alias vsi='vcsi'
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # fzf stuff
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# wrapping for fzf keybinds
+function zvm_after_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
 
 # Setting fd as default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .cache'
