@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- Taken from folke
 -- Fixing treesitter concealing
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "json", "jsonc", "yaml" },
+  pattern = { "markdown", "json", "jsonc", "yaml" },
   callback = function()
     vim.wo.spell = false
     vim.wo.conceallevel = 0
