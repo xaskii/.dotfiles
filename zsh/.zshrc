@@ -46,6 +46,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # zstyle ':omz:update' frequency 13
+zstyle ':omz:lib:theme-and-appearance' gnu-ls yes # enables gnu ls on mac
 DISABLE_AUTO_UPDATE=true
 # DISABLE_MAGIC_FUNCTIONS=true
 # DISABLE_LS_COLORS="true"
@@ -64,8 +65,11 @@ ZSHZ_TILDE=1
 ZSHZ_NO_RESOLVE_SYMLINKS=1
 ZSHZ_CASE=smart
 
-ZVM_CURSOR_STYLE_ENABLED=false
-ZVM_VI_EDITOR=nvim
+function zvm_config() {
+  ZVM_CURSOR_STYLE_ENABLED=false
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_EDITOR=nvim
+}
 
 # VI_MODE_SET_CURSOR=true
 VI_MODE_DISABLE_CLIPBOARD=true
@@ -74,7 +78,7 @@ VI_MODE_DISABLE_CLIPBOARD=true
 NVM_COMPLETION=true
 NVM_DIR="$HOME/.config/nvm"
 NVM_LAZY_LOAD=true
-NVM_LAZY_LOAD_EXTRA_COMMANDS=(vim nvim) # will have to update
+NVM_LAZY_LOAD_EXTRA_COMMANDS=(vim nvim pnpm yarn npm code) # will have to update
 
 # ---------- optional plugins ---------------
 # if [[ -d "$ZSH/custom/plugins/poetry" ]]; then
@@ -94,9 +98,7 @@ export VISUAL="nvim"
 
 alias zshconfig="code ~/.zshrc"
 alias sshconfig="code ~/.ssh/config"
-# alias zshref="exec zsh" # apparently exec is better
 alias zshref="omz reload" # 
-# alias zshref='source ~/.zshrc'
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias vim='nvim'
 alias sen='yt-dlp -S "res:720"'
@@ -112,26 +114,27 @@ alias vsi='vcsi'
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # fzf stuff
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# eval "$(fzf --zsh)"
 # wrapping for fzf keybinds
 function zvm_after_init() {
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  eval "$(fzf --zsh)"
 }
 
 # Setting fd as default source for fzf
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .cache'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# paths
-_fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
-}
-# dir fuzzy completion
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
+# export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .cache'
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# # paths
+# _fzf_compgen_path() {
+#   fd --hidden --follow --exclude ".git" . "$1"
+# }
+# # dir fuzzy completion
+# _fzf_compgen_dir() {
+#   fd --type d --hidden --follow --exclude ".git" . "$1"
+# }
 
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# now run automatically in iterm2
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # pnpm
 export PNPM_HOME="/Users/spring/Library/pnpm"

@@ -13,10 +13,8 @@ prependPath "$HOME/.local/bin"
 prependPath "$HOME/local/bin"
 prependPath "$HOME/.spicetify"
 prependPath "$HOME/.rvm/bin"
-prependPath "$HOME:/snap/bin"
-
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+prependPath "/snap/bin"
+prependPath "$HOME/.iterm2"
 
 # export CC="clang"
 # export CXX="clang++"
@@ -26,9 +24,18 @@ if [[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]]; then
     export BROWSER=wslview
 fi
 
-if command -v gdircolors &> /dev/null; then
-  eval "$(gdircolors)"
+# if command -v gdircolors &> /dev/null; then
+#   eval "$(gdircolors)"
+# fi
+# sets LS_COLORS for pretty much all directory listing tools except for BSD ls
+if command -v vivid &> /dev/null; then
+  # shellcheck disable=SC2155
+  export LS_COLORS="$(vivid generate catppuccin-mocha)"
 fi
+
+# if command -v gls &> /dev/null; then
+#   alias ls="gls --color=auto --hyperlink=auto"
+# fi
 
 if command -v nvim &> /dev/null; then
   export MANPAGER="nvim +Man!"
