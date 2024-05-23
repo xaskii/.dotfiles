@@ -32,7 +32,7 @@ plugins=(
 
   # custom plugins
   zsh-syntax-highlighting # slow af on wsl/ssh
-  zsh-nvm
+  # zsh-nvm
   zsh-autosuggestions # supposed to be sourced last but idk
 )
 
@@ -117,7 +117,9 @@ alias vsi='vcsi'
 # eval "$(fzf --zsh)"
 # wrapping for fzf keybinds
 function zvm_after_init() {
-  eval "$(fzf --zsh)"
+  if command -v fzf &> /dev/null; then
+    eval "$(fzf --zsh)"
+  fi
 }
 
 # Setting fd as default source for fzf

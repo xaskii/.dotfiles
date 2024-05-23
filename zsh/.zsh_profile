@@ -19,6 +19,9 @@ prependPath "$HOME/.iterm2"
 # export CC="clang"
 # export CXX="clang++"
 
+# brew
+export HOMEBREW_DISPLAY_INSTALL_TIMES=1
+
 # conditional environment variables
 if [[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]]; then
     export BROWSER=wslview
