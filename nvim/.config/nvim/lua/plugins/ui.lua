@@ -13,21 +13,21 @@ return {
       },
     },
   },
-  {
-    -- enabled = false, -- doesn't support word wrapping yet like blankline
-    "echasnovski/mini.indentscope",
-    opts = {
-      symbol = "▏",
-      draw = {
-        priority = 100,
-        delay = 0,
-        animation = require("mini.indentscope").gen_animation.none(),
-      },
-      options = {
-        indent_at_cursor = false,
-      },
-    },
-  },
+  -- {
+  --   -- enabled = false, -- doesn't support word wrapping yet like blankline
+  --   "echasnovski/mini.indentscope",
+  --   opts = {
+  --     symbol = "▏",
+  --     draw = {
+  --       priority = 100,
+  --       delay = 0,
+  --       animation = require("mini.indentscope").gen_animation.none(),
+  --     },
+  --     options = {
+  --       indent_at_cursor = false,
+  --     },
+  --   },
+  -- },
 
   -- tweaking notification stuff
   {
