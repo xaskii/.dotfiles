@@ -37,7 +37,7 @@ if command -v vivid &> /dev/null; then
 fi
 
 if command -v gls &> /dev/null; then
-  alias ls="gls --color=auto --hyperlink=auto"
+  alias ls="gls -N --color=auto"
 fi
 
 if command -v nvim &> /dev/null; then
