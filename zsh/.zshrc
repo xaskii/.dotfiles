@@ -32,7 +32,6 @@ plugins=(
 
   # custom plugins
   zsh-syntax-highlighting # slow af on wsl/ssh
-  # zsh-nvm
   zsh-autosuggestions # supposed to be sourced last but idk
 )
 
@@ -75,10 +74,6 @@ function zvm_config() {
 VI_MODE_DISABLE_CLIPBOARD=true
 # VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true # SLOW
 
-NVM_COMPLETION=true
-NVM_DIR="$HOME/.config/nvm"
-NVM_LAZY_LOAD=true
-NVM_LAZY_LOAD_EXTRA_COMMANDS=(vim nvim pnpm yarn npm code) # will have to update
 
 # ---------- optional plugins ---------------
 # if [[ -d "$ZSH/custom/plugins/poetry" ]]; then
@@ -108,10 +103,6 @@ alias transfer='rsync -vahP'
 alias stop='ssh -O stop'
 alias clipclear='echo "" | clipcopy && echo "clipboard cleared"'
 alias vsi='vcsi'
-
-# export NVM_DIR="$HOME/.config/nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # fzf stuff
 # eval "$(fzf --zsh)"
@@ -154,3 +145,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # idk if true ^^
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
