@@ -3,16 +3,16 @@ return {
   { "nvimdev/dashboard-nvim", enabled = false },
 
   -- indentation fuckery, chanign indentation character to be flush
-  {
-    "lukas-reineke/indent-blankline.nvim", -- regular indentation symbols
-    opts = {
-      indent = {
-        repeat_linebreak = true,
-        char = "▏",
-        tab_char = "▏",
-      },
-    },
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim", -- regular indentation symbols
+  --   opts = {
+  --     indent = {
+  --       repeat_linebreak = true,
+  --       char = "▏",
+  --       tab_char = "▏",
+  --     },
+  --   },
+  -- },
   -- {
   --   -- enabled = false, -- doesn't support word wrapping yet like blankline
   --   "echasnovski/mini.indentscope",
@@ -28,6 +28,19 @@ return {
   --     },
   --   },
   -- },
+  {
+    -- stop insta showing marks and registers
+    "folke/which-key.nvim",
+    opts = {
+      ---@type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
+      delay = function(ctx)
+        if ctx.plugin and ctx.plugin ~= "marks" and ctx.plugin ~= "registers" then
+          return 0
+        end
+        return 200
+      end,
+    },
+  },
 
   -- tweaking notification stuff
   {
@@ -47,13 +60,13 @@ return {
       opts.presets.command_palette = false
     end,
   },
-  {
-    "rcarriga/nvim-notify",
-    enabled = false,
-    opts = {
-      render = "compact",
-      stages = "static",
-      timeout = 1500,
-    },
-  },
+  -- {
+  --   "rcarriga/nvim-notify",
+  --   enabled = false,
+  --   opts = {
+  --     render = "compact",
+  --     stages = "static",
+  --     timeout = 1500,
+  --   },
+  -- },
 }

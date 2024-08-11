@@ -26,7 +26,7 @@ vim.opt.listchars = {
   nbsp = "░",
 }
 
-vim.opt.scrolloff = 8 -- default is 4, but I like 8
+vim.opt.scrolloff = 4
 vim.opt.wrap = true
 vim.opt.breakindent = true -- so important omg I didn't know about this
 vim.opt.linebreak = true

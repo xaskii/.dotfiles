@@ -33,6 +33,9 @@ return {
     },
   },
   {
+    "tpope/vim-surround",
+  },
+  {
     "folke/flash.nvim",
     opts = { modes = { search = { enabled = false } } },
   },
@@ -50,23 +53,10 @@ return {
       },
     },
   },
-
   {
-    -- disabling insta-showing marks
-    "folke/which-key.nvim",
+    "nvim-lspconfig",
     opts = {
-      triggers_nowait = {
-        -- marks
-        -- "`",
-        -- "'",
-        -- "g`",
-        -- "g'",
-        -- registers
-        '"',
-        "<c-r>",
-        -- spelling
-        "z=",
-      },
+      inlay_hints = { enabled = false },
     },
   },
   {

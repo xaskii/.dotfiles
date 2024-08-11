@@ -1,17 +1,17 @@
--- if true then
---   return {
---     {
---       "nvim-lualine/lualine.nvim",
---       opts = {
---         theme = "auto",
---         options = {
---           component_separators = "",
---           section_separators = "",
---         },
---       },
---     },
---   }
--- end -- to disable lualine changes
+if true then
+  return {
+    {
+      "nvim-lualine/lualine.nvim",
+      opts = {
+        theme = "auto",
+        options = {
+          component_separators = "",
+          section_separators = "",
+        },
+      },
+    },
+  }
+end -- to disable lualine changes
 
 -- taken from evil-lualine:
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
