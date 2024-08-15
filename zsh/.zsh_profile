@@ -8,6 +8,7 @@ for x in "$PERSONAL"/*; do
 done
 
 prependPath "/usr/local/go/bin"
+prependPath "$HOME/go/bin"
 prependPath "$HOME/bin"
 prependPath "$HOME/.local/bin"
 prependPath "$HOME/local/bin"
