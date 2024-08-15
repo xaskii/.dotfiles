@@ -10,6 +10,14 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- idk if I want this yet
 vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "go" },
+  callback = function()
+    vim.b.autoformat = true
+  end,
+})
+
+-- idk if I want this yet
+vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "lua" },
   callback = function()
     vim.b.autoformat = true

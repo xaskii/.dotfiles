@@ -1,17 +1,21 @@
-if true then
-  return {
-    {
-      "nvim-lualine/lualine.nvim",
-      opts = {
-        theme = "auto",
-        options = {
-          component_separators = "",
-          section_separators = "",
-        },
-      },
-    },
-  }
-end -- to disable lualine changes
+-- if true then
+--   return {
+--     {
+--       "nvim-lualine/lualine.nvim",
+--       -- enabled = false,
+--       opts = {
+--         theme = "auto",
+--         options = {
+--           component_separators = "",
+--           section_separators = "",
+--         },
+--         sections = {
+--           lualine_b = {},
+--         },
+--       },
+--     },
+--   }
+-- end -- to disable lualine changes
 
 -- taken from evil-lualine:
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
@@ -198,28 +202,28 @@ return {
 
     -- setting cond as next(vim.lsp.get_clients()) has weird behaviour
     -- disabling for now
-    -- ins_right({
-    --   -- Lsp server name .
-    --   function()
-    --     local msg = "No Active Lsp"
-    --     local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
-    --     local clients = vim.lsp.get_clients()
-    --
-    --     if next(clients) == nil then
-    --       return nil
-    --     end
-    --     for _, client in ipairs(clients) do
-    --       local filetypes = client.config.filetypes
-    --       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-    --         return client.name
-    --       end
-    --     end
-    --     return msg
-    --   end,
-    --   icon = "",
-    --   color = { fg = "#ffffff", gui = "bold" },
-    -- })
-    --
+    ins_right({
+      -- Lsp server name .
+      function()
+        local msg = "No Active Lsp"
+        local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
+        local clients = vim.lsp.get_clients()
+
+        if next(clients) == nil then
+          return nil
+        end
+        for _, client in ipairs(clients) do
+          local filetypes = client.config.filetypes
+          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+            return client.name
+          end
+        end
+        return msg
+      end,
+      icon = "",
+      color = { fg = "#ffffff", gui = "bold" },
+    })
+
     ins_right({ "location" })
     ins_right({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
@@ -239,11 +243,11 @@ return {
       color = { fg = colors.green, gui = "bold" },
     })
 
-    ins_right({
-      "branch",
-      icon = "",
-      color = { fg = colors.violet, gui = "bold" },
-    })
+    -- ins_right({
+    --   "branch",
+    --   icon = "",
+    --   color = { fg = colors.violet, gui = "bold" },
+    -- })
 
     ins_right({
       "diff",

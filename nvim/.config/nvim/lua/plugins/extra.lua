@@ -56,6 +56,20 @@ return {
   {
     "nvim-lspconfig",
     opts = {
+      servers = {
+        gopls = {
+          settings = {
+            gopls = {
+              directoryFilters = {
+                "-bazel-bin",
+                "-bazel-out",
+                "-bazel-testlogs",
+                "-bazel-mypkg",
+              },
+            },
+          },
+        },
+      },
       inlay_hints = { enabled = false },
     },
   },
