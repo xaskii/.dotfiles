@@ -1,3 +1,9 @@
+if true then
+  return {
+    "nvim-lualine/lualine.nvim",
+    enabled = false,
+  }
+end
 -- if true then
 --   return {
 --     {
