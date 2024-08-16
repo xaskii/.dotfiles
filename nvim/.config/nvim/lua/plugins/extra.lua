@@ -88,4 +88,10 @@ return {
 
   -- just testing out disabling some of this stuff
   { "nvim-treesitter/nvim-treesitter-context", enabled = false }, -- leaves functions at top of buffer
+  {
+    "mbbill/undotree",
+    init = function()
+      vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+    end,
+  },
 }

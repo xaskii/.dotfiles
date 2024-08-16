@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- Disabling indentation guides for man pages
 vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-  pattern = { "man", "noice" },
+  pattern = { "man", "noice", "undotree" },
   callback = function()
     vim.b.miniindentscope_disable = true
   end,
