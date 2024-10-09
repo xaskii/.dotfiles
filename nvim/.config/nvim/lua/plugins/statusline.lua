@@ -1,9 +1,9 @@
-if true then
-  return {
-    "nvim-lualine/lualine.nvim",
-    enabled = false,
-  }
-end
+-- if true then
+--   return {
+--     "nvim-lualine/lualine.nvim",
+--     enabled = false,
+--   }
+-- end
 -- if true then
 --   return {
 --     {
@@ -15,14 +15,12 @@ end
 --           component_separators = "",
 --           section_separators = "",
 --         },
---         sections = {
---           lualine_b = {},
---         },
+--         sections = {},
 --       },
 --     },
 --   }
 -- end -- to disable lualine changes
-
+--
 -- taken from evil-lualine:
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
 return {
@@ -31,6 +29,21 @@ return {
   -- lazy = false,
   -- Have to use config instead of options to override all of the LazyVim settings
   opts = function()
+    if true then
+      return {
+        options = {
+          component_separators = "",
+          section_separators = "",
+        },
+        sections = {
+          lualine_x = {
+            "encoding",
+            { "fileformat", icons_enabled = false },
+            "filetype",
+          },
+        },
+      }
+    end
     -- edited Eviline config for lualine
     -- Author: shadmansaleh
     -- Credit: glepnir
@@ -187,16 +200,16 @@ return {
       color = { fg = colors.magenta, gui = "bold" },
     })
 
-    ins_left({
-      "diagnostics",
-      sources = { "nvim_diagnostic" },
-      symbols = { error = " ", warn = " ", info = " " },
-      diagnostics_color = {
-        color_error = { fg = colors.red },
-        color_warn = { fg = colors.yellow },
-        color_info = { fg = colors.cyan },
-      },
-    })
+    -- ins_left({
+    --   "diagnostics",
+    --   sources = { "nvim_diagnostic" },
+    --   symbols = { error = " ", warn = " ", info = " " },
+    --   diagnostics_color = {
+    --     color_error = { fg = colors.red },
+    --     color_warn = { fg = colors.yellow },
+    --     color_info = { fg = colors.cyan },
+    --   },
+    -- })
 
     -- Insert mid section. You can make any number of sections in neovim :)
     -- for lualine it's any number greater then 2
@@ -216,7 +229,7 @@ return {
         local clients = vim.lsp.get_clients()
 
         if next(clients) == nil then
-          return nil
+          return ""
         end
         for _, client in ipairs(clients) do
           local filetypes = client.config.filetypes
@@ -224,7 +237,7 @@ return {
             return client.name
           end
         end
-        return msg
+        return ""
       end,
       icon = "",
       color = { fg = "#ffffff", gui = "bold" },
@@ -255,17 +268,17 @@ return {
     --   color = { fg = colors.violet, gui = "bold" },
     -- })
 
-    ins_right({
-      "diff",
-      -- Is it me or the symbol for modified us really weird
-      symbols = { added = " ", modified = "󰝤 ", removed = " " },
-      diff_color = {
-        added = { fg = colors.green },
-        modified = { fg = colors.orange },
-        removed = { fg = colors.red },
-      },
-      cond = conditions.hide_in_width,
-    })
+    -- ins_right({
+    --   "diff",
+    --   -- Is it me or the symbol for modified us really weird
+    --   symbols = { added = " ", modified = "󰝤 ", removed = " " },
+    --   diff_color = {
+    --     added = { fg = colors.green },
+    --     modified = { fg = colors.orange },
+    --     removed = { fg = colors.red },
+    --   },
+    --   cond = conditions.hide_in_width,
+    -- })
 
     ins_right({
       function()

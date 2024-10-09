@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- idk if I want this yet
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "go" },
+  pattern = { "go", "python" },
   callback = function()
     vim.b.autoformat = true
   end,
@@ -47,5 +47,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "help", "man" },
   callback = function()
     vim.b.wrap = true
+  end,
+})
+
+-- obsidian vault settings
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  pattern = { "*/winter/obsidian/*.md" },
+  callback = function()
+    vim.opt_local.conceallevel = 2
+    -- vim.b.cmp_enabled = false
   end,
 })

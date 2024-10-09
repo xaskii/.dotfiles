@@ -33,6 +33,7 @@ return {
   {
     -- stop insta showing marks and registers
     "folke/which-key.nvim",
+    ---@class wk.Opts
     opts = {
       ---@type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
       delay = function(ctx)
@@ -41,6 +42,7 @@ return {
         end
         return 200
       end,
+      plugins = { registers = false },
     },
   },
 
@@ -57,27 +59,29 @@ return {
         command_palette = true,
       },
     },
+    -- TODO: combine this stuff with above eventually, but no noice solves the initial problem
     -- opts = function(_, opts)
-    --   -- needed when nvim-notify enabled
-    --   -- table.insert(opts.routes, {
-    --   --   filter = {
-    --   --     event = "notify",
-    --   --     find = "No information available",
-    --   --   },
-    --   --   opts = { skip = true },
-    --   -- })
-    --   opts.cmdline = { view = "cmdline" }
-    --   opts.presets.lsp_doc_border = true
-    --   opts.presets.command_palette = false
+    -- needed when nvim-notify enabled
+    -- table.insert(opts.routes, {
+    --   filter = {
+    --     event = "notify",
+    --     find = "No information available",
+    --   },
+    --   opts = { skip = true },
+    -- })
+    -- opts.cmdline = { view = "cmdline" }
+    -- opts.presets.lsp_doc_border = true
+    -- opts.presets.command_palette = false
     -- end,
   },
   {
+    -- this is just straight noise, why can't they be small
     "rcarriga/nvim-notify",
     enabled = false,
-    opts = {
-      render = "compact",
-      stages = "static",
-      timeout = 1500,
-    },
+    -- opts = {
+    --   render = "compact",
+    --   stages = "static",
+    --   timeout = 1500,
+    -- },
   },
 }

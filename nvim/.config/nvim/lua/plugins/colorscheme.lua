@@ -17,24 +17,26 @@ return {
   --   end,
   -- },
   -- catppuccin
-  -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
-  --   opts = {
-  --     color_overrides = {
-  --       mocha = {
-  --         base = "#0a0e15",
-  --         crust = "#0c101a",
-  --         mantle = "#0e121c",
-  --       },
-  --     },
-  --   },
-  --   -- lazy = true,
-  --   -- opts = { transparent_background = true },
-  -- },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = true,
+    -- opts = {
+    --   color_overrides = {
+    --     -- mocha = {
+    --     --   base = "#0a0e15",
+    --     --   crust = "#0c101a",
+    --     --   mantle = "#0e121c",
+    --     -- },
+    --   },
+    -- },
+    -- lazy = true,
+    -- opts = { transparent_background = true },
+  },
   -- gruvbox
   {
     "ellisonleao/gruvbox.nvim",
+    lazy = true,
     opts = {
       -- transparent_mode = true,
     },
@@ -43,8 +45,8 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "rose-pine",
-      -- colorscheme = "catppuccin",
-      colorscheme = "gruvbox",
+      colorscheme = "catppuccin",
+      -- colorscheme = "gruvbox",
     },
   },
 
