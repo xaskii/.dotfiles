@@ -1,9 +1,12 @@
+# shellcheck shell=bash
 # certain terminals don't have XDG_CONFIG_HOME defined early
 export XDG_CONFIG_HOME=$HOME/.config
 export COMFYEDITOR="code"
 PERSONAL=$XDG_CONFIG_HOME/personal
+# shellcheck disable=SC1091
 source "$PERSONAL"/env
 for x in "$PERSONAL"/*; do
+  # shellcheck disable=SC1090
   source "$x"
 done
 
@@ -16,10 +19,13 @@ prependPath "$HOME/.spicetify"
 prependPath "$HOME/.rvm/bin"
 prependPath "/snap/bin"
 prependPath "$HOME/.iterm2"
+prependPath "$HOME/.ghcup/bin"
 
 # export CC="clang"
 # export CXX="clang++"
 
+# volta pnpm support
+export VOLTA_FEATURE_PNPM=1
 # brew
 export HOMEBREW_DISPLAY_INSTALL_TIMES=1
 
@@ -35,6 +41,8 @@ fi
 if command -v vivid &> /dev/null; then
   # shellcheck disable=SC2155
   export LS_COLORS="$(vivid generate catppuccin-mocha)"
+  # shellcheck disable=SC2155
+  export LS_COLORS="$(vivid generate gruvbox-dark)"
 fi
 
 if command -v gls &> /dev/null; then

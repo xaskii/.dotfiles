@@ -25,7 +25,8 @@ plugins=(
   # vi-mode
   zsh-vi-mode
   vscode
-  z
+  # z
+  zoxide
 
   # trial
   # ssh
@@ -97,7 +98,7 @@ alias zshref="omz reload" #
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias vim='nvim'
 alias sen='yt-dlp -S "res:720"'
-alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata -o "%(uploader)s-%(title)s-[%(id)s].%(ext)s"'
+alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata -o "%(uploader)s-%(title)s-[%(id)s].%(ext)s"'alias aytv='yt-dlp --remux-video mkv --embed-thumbnail --embed-metadata -o "%(uploader)s-%(title)s-[%(id)s].%(ext)s"'
 alias dim='echo $(tput cols) columns x $(tput lines) rows'
 alias transfer='rsync -vahP'
 alias stop='ssh -O stop'
