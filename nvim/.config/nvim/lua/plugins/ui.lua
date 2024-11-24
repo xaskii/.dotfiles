@@ -1,6 +1,11 @@
 return {
-  -- looks pretty cool tbh, but I like the default behaviour
-  { "nvimdev/dashboard-nvim", enabled = false },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = { enabled = false },
+      notifier = { enabled = false },
+    },
+  },
 
   -- indentation fuckery, chanign indentation character to be flush
   {
@@ -33,7 +38,6 @@ return {
   {
     -- stop insta showing marks and registers
     "folke/which-key.nvim",
-    ---@class wk.Opts
     opts = {
       ---@type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
       delay = function(ctx)
@@ -75,13 +79,6 @@ return {
     -- end,
   },
   {
-    -- this is just straight noise, why can't they be small
-    "rcarriga/nvim-notify",
-    enabled = false,
-    -- opts = {
-    --   render = "compact",
-    --   stages = "static",
-    --   timeout = 1500,
-    -- },
+    "hiphish/rainbow-delimiters.nvim",
   },
 }

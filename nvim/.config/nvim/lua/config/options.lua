@@ -28,8 +28,10 @@ vim.opt.listchars = {
 
 vim.opt.scrolloff = 4
 vim.opt.wrap = true
+vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.breakindent = true -- so important omg I didn't know about this
 vim.opt.linebreak = true
 -- this doesn't play well with word wrap lmfao
 -- vim.opt.colorcolumn = "80"
 vim.g.miniindentscope_disable = true
+vim.wo.spell = false
