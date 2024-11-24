@@ -30,6 +30,7 @@ plugins=(
 
   # trial
   # ssh
+  # pyenv
 
   # custom plugins
   zsh-syntax-highlighting # slow af on wsl/ssh
@@ -66,7 +67,7 @@ ZSHZ_TILDE=1
 ZSHZ_CASE=smart
 
 function zvm_config() {
-  # ZVM_CURSOR_STYLE_ENABLED=false
+  ZVM_CURSOR_STYLE_ENABLED=false
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
   ZVM_VI_EDITOR=nvim
 }
@@ -98,7 +99,8 @@ alias zshref="omz reload" #
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias vim='nvim'
 alias sen='yt-dlp -S "res:720"'
-alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata -o "%(uploader)s-%(title)s-[%(id)s].%(ext)s"'alias aytv='yt-dlp --remux-video mkv --embed-thumbnail --embed-metadata -o "%(uploader)s-%(title)s-[%(id)s].%(ext)s"'
+alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata -o "%(uploader)s-%(title)s-[%(id)s].%(ext)s" --no-restrict-filenames'
+alias aytv='yt-dlp --remux-video mkv --embed-thumbnail --embed-metadata -o "%(uploader)s-%(title)s-[%(id)s].%(ext)s"'
 alias dim='echo $(tput cols) columns x $(tput lines) rows'
 alias transfer='rsync -vahP'
 alias stop='ssh -O stop'
@@ -139,7 +141,7 @@ export PATH="$PNPM_HOME:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# idk if true ^^
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
