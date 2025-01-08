@@ -41,39 +41,14 @@ return {
     opts = { modes = { search = { enabled = false } } },
   },
   {
-    "hrsh7th/nvim-cmp",
-    ---@type cmp.ConfigSchema
-    opts = {
-      sources = {
-        { name = "copilot" },
-        {
-          name = "nvim_lsp",
-          ---@type fun(entry: cmp.Entry, ctx: cmp.Context): boolean
-          entry_filter = function(entry, _)
-            return require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
-          end,
-        },
-      },
-    },
+    "saghen/blink.cmp",
+    enabled = false,
+    opts = {},
   },
   {
     "nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
-      servers = {
-        gopls = {
-          settings = {
-            gopls = {
-              directoryFilters = {
-                "-bazel-bin",
-                "-bazel-out",
-                "-bazel-testlogs",
-                "-bazel-mypkg",
-              },
-            },
-          },
-        },
-      },
       inlay_hints = { enabled = false },
     },
   },

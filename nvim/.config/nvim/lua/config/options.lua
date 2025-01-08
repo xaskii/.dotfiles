@@ -35,3 +35,8 @@ vim.opt.linebreak = true
 -- vim.opt.colorcolumn = "80"
 vim.g.miniindentscope_disable = true
 vim.wo.spell = false
+
+-- wtf??
+vim.g.snacks_animate = true
+vim.opt.confirm = false
+vim.opt.shortmess:remove("I")

@@ -1,40 +1,19 @@
 return {
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   {
     "folke/snacks.nvim",
+    ---@type snacks.Config
     opts = {
       dashboard = { enabled = false },
       notifier = { enabled = false },
-    },
-  },
-
-  -- indentation fuckery, chanign indentation character to be flush
-  {
-    "lukas-reineke/indent-blankline.nvim", -- regular indentation symbols
-    opts = {
-      -- no scope highlighting, it's so bright
-      scope = { enabled = false },
+      scroll = { enabled = false },
       indent = {
-        repeat_linebreak = true,
-        char = "▏",
-        tab_char = "▏",
+        indent = { char = "▏" },
+        animate = { enabled = false },
+        scope = { enabled = false },
       },
     },
   },
-  -- {
-  --   -- enabled = false, -- doesn't support word wrapping yet like blankline
-  --   "echasnovski/mini.indentscope",
-  --   opts = {
-  --     symbol = "▏",
-  --     draw = {
-  --       priority = 100,
-  --       delay = 0,
-  --       animation = require("mini.indentscope").gen_animation.none(),
-  --     },
-  --     options = {
-  --       indent_at_cursor = false,
-  --     },
-  --   },
-  -- },
   {
     -- stop insta showing marks and registers
     "folke/which-key.nvim",
