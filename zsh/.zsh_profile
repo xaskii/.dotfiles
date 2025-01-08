@@ -19,6 +19,8 @@ prependPath "$HOME/.spicetify"
 prependPath "$HOME/.rvm/bin"
 prependPath "$HOME/.iterm2"
 prependPath "$HOME/.ghcup/bin"
+prependPath "/Applications/MacPorts/Emacs.app/Contents/MacOS"
+prependPath "$HOME/.emacs.d/bin"
 
 # export CC="clang"
 # export CXX="clang++"
@@ -40,9 +42,7 @@ fi
 if command -v vivid &> /dev/null; then
   # shellcheck disable=SC2155
   # export LS_COLORS="$(vivid generate tokyonight-storm)"
-  # shellcheck disable=SC2155
   export LS_COLORS="$(vivid generate catppuccin-mocha)"
-  # shellcheck disable=SC2155
   # export LS_COLORS="$(vivid generate gruvbox-dark)"
 fi
 
@@ -54,6 +54,14 @@ fi
 if command -v nvim &> /dev/null; then
   export MANPAGER="nvim +Man!"
 fi
+
+uvman() {
+  if [[ $# -lt 1 ]]; then
+    echo "specify tool"
+    return 1
+  fi
+  uv tool run --from "$1" man "${2:-$1}"
+}
 
 catr() {
     tail -n "+$1" "$3" | head -n "$(($2 - $1 + 1))"

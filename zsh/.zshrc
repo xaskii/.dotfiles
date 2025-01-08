@@ -67,7 +67,7 @@ ZSHZ_TILDE=1
 ZSHZ_CASE=smart
 
 function zvm_config() {
-  ZVM_CURSOR_STYLE_ENABLED=false
+  # ZVM_CURSOR_STYLE_ENABLED=false
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
   ZVM_VI_EDITOR=nvim
 }
@@ -104,8 +104,9 @@ alias aytv='yt-dlp --remux-video mkv --embed-thumbnail --embed-metadata -o "%(up
 alias dim='echo $(tput cols) columns x $(tput lines) rows'
 alias transfer='rsync -vahP'
 alias stop='ssh -O stop'
-alias clipclear='echo "" | clipcopy && echo "clipboard cleared"'
+alias clipclear='</dev/null pbcopy'
 alias vsi='vcsi'
+alias fvideos='fd -emp4 -emkv -ewebm -em4v'
 
 # fzf stuff
 # eval "$(fzf --zsh)"
