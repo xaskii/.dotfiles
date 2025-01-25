@@ -40,3 +40,10 @@ vim.wo.spell = false
 vim.g.snacks_animate = true
 vim.opt.confirm = false
 vim.opt.shortmess:remove("I")
+
+-- no status line
+vim.opt.laststatus = 3 -- Global statusline
+vim.opt.showmode = true -- Show current mode (insert, visual, etc.)
+vim.opt.cmdheight = 1 -- Default command line height
+vim.opt.showcmd = true -- Show partial commands in statusline
+vim.opt.ruler = true -- Show cursor position in statusline

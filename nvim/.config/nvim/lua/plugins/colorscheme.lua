@@ -47,10 +47,10 @@ return {
       -- colorscheme = "gruvbox",
     },
   },
-
   -- TOKYO NIGHT transparency
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   opts = { transparent = true },
-  -- },
+  {
+    "folke/tokyonight.nvim",
+    enabled = false,
+    opts = { transparent = true },
+  },
 }

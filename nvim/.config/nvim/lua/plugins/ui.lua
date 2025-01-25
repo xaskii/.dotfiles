@@ -32,8 +32,9 @@ return {
   -- tweaking notification stuff
   {
     "folke/noice.nvim",
-    -- enabled = false,
+    enabled = false,
     opts = {
+      -- messages = { view_search = false },
       cmdline = {
         view = "cmdline",
       },

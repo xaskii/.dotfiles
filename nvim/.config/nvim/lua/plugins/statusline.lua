@@ -25,7 +25,7 @@
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
 return {
   "nvim-lualine/lualine.nvim",
-  -- enabled = false,
+  enabled = false,
   -- lazy = false,
   -- Have to use config instead of options to override all of the LazyVim settings
   opts = function()

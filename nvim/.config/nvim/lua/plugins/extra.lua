@@ -2,8 +2,8 @@ return {
   { "ThePrimeagen/vim-be-good" },
   {
     "tpope/vim-sleuth",
-    lazy = true,
-    event = "VeryLazy",
+    -- lazy = true,
+    -- event = "VeryLazy",
   },
   -- {
   --   "L3MON4D3/LuaSnip",
@@ -60,11 +60,13 @@ return {
   },
   {
     "stevearc/conform.nvim",
+    ---@class conform.setupOpts
     opts = {
       formatters_by_ft = {
         -- sh = { "shellharden" },
         nix = { "nixpkgs-fmt" },
         markdown = { "prettierd" },
+        json = { "biome" },
       },
     },
   },
@@ -184,5 +186,18 @@ return {
     config = function()
       require("kitty-scrollback").setup()
     end,
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed.
+      "nvim-telescope/telescope.nvim", -- optional
+      "ibhagwan/fzf-lua", -- optional
+      "echasnovski/mini.pick", -- optional
+    },
+    config = true,
   },
 }
