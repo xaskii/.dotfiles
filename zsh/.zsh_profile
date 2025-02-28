@@ -16,11 +16,12 @@ prependPath "$HOME/bin"
 prependPath "$HOME/.local/bin"
 prependPath "$HOME/local/bin"
 prependPath "$HOME/.spicetify"
-prependPath "$HOME/.rvm/bin"
 prependPath "$HOME/.iterm2"
 prependPath "$HOME/.ghcup/bin"
 prependPath "/Applications/MacPorts/Emacs.app/Contents/MacOS"
 prependPath "$HOME/.emacs.d/bin"
+
+export MANPATH="$MANPATH:$HOME/.local/share/man"
 
 # export CC="clang"
 # export CXX="clang++"
@@ -29,6 +30,7 @@ prependPath "$HOME/.emacs.d/bin"
 export VOLTA_FEATURE_PNPM=1
 # brew
 export HOMEBREW_DISPLAY_INSTALL_TIMES=1
+# export HOMEBREW_NO_AUTO_UPDATE=1
 
 # conditional environment variables
 if [[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]]; then
@@ -43,6 +45,7 @@ if command -v vivid &> /dev/null; then
   # shellcheck disable=SC2155
   # export LS_COLORS="$(vivid generate tokyonight-storm)"
   export LS_COLORS="$(vivid generate catppuccin-mocha)"
+  # export LS_COLORS="$(vivid generate catppuccin-latte)"
   # export LS_COLORS="$(vivid generate gruvbox-dark)"
 fi
 
@@ -54,6 +57,14 @@ fi
 if command -v nvim &> /dev/null; then
   export MANPAGER="nvim +Man!"
 fi
+
+# zshconfig() {
+#   {1:-code} "$HOME/.zshrc"
+# }
+
+# sshconfig() {
+#   {1:-code} "$HOME/.ssh/config"
+# }
 
 uvman() {
   if [[ $# -lt 1 ]]; then

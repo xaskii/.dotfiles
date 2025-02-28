@@ -29,12 +29,15 @@ plugins=(
   zoxide
 
   # trial
-  # ssh
+  ssh
   # pyenv
+  mise
 
   # custom plugins
-  zsh-syntax-highlighting # slow af on wsl/ssh
+  # zsh-syntax-highlighting # slow af on wsl/ssh
+  fast-syntax-highlighting
   zsh-autosuggestions # supposed to be sourced last but idk
+
 )
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -93,8 +96,7 @@ source $HOME/.zsh_profile
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-alias zshconfig="code ~/.zshrc"
-alias sshconfig="code ~/.ssh/config"
+alias sshclear="fd . ~/.ssh/control -X rm -v"
 alias zshref="omz reload" # 
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias vim='nvim'
@@ -106,7 +108,8 @@ alias transfer='rsync -vahP'
 alias stop='ssh -O stop'
 alias clipclear='</dev/null pbcopy'
 alias vsi='vcsi'
-alias fvideos='fd -emp4 -emkv -ewebm -em4v'
+# alias fvideos='fd -emp4 -emkv -ewebm -em4v'
+alias cfcurl='/opt/homebrew/opt/curl/bin/curl'
 
 # fzf stuff
 # eval "$(fzf --zsh)"
@@ -139,10 +142,9 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/spring/.lmstudio/bin"
