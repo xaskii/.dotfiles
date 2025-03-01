@@ -63,6 +63,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   callback = function()
     vim.opt_local.conceallevel = 2
     vim.b.autoformat = true
+    vim.b.completion = false
   end,
 })
 

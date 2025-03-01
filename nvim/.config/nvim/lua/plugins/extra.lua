@@ -42,7 +42,11 @@ return {
   },
   {
     "saghen/blink.cmp",
-    enabled = false,
+    -- enabled = function()
+    --   return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
+    --     and vim.bo.buftype ~= "prompt"
+    --     and vim.b.completion ~= false
+    -- end,
     opts = {},
   },
   {
@@ -66,6 +70,7 @@ return {
         -- sh = { "shellharden" },
         nix = { "nixpkgs-fmt" },
         markdown = { "prettierd" },
+        -- json = { "prettierd" },
         json = { "biome" },
       },
     },
@@ -199,5 +204,16 @@ return {
       "echasnovski/mini.pick", -- optional
     },
     config = true,
+  },
+  {
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
   },
 }

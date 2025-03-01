@@ -24,6 +24,7 @@ vim.opt.listchars = {
   extends = "»",
   precedes = "«",
   nbsp = "░",
+  -- space = "·",
 }
 
 vim.opt.scrolloff = 4

@@ -20,18 +20,18 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    lazy = true,
-    opts = {
-      color_overrides = {
-        mocha = {
-          base = "#141414",
-          crust = "#161616",
-          mantle = "#181818",
-        },
-      },
-    },
     -- lazy = true,
-    -- opts = { transparent_background = true },
+    -- opts = {
+    --   color_overrides = {
+    --     mocha = {
+    --       base = "#141414",
+    --       crust = "#161616",
+    --       mantle = "#181818",
+    --     },
+    --   },
+    -- },
+    -- lazy = true,
+    opts = { transparent_background = true },
   },
   -- gruvbox
   {
