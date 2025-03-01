@@ -30,7 +30,9 @@ export MANPATH="$MANPATH:$HOME/.local/share/man"
 export VOLTA_FEATURE_PNPM=1
 # brew
 export HOMEBREW_DISPLAY_INSTALL_TIMES=1
-# export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+# rsync autocomplete broken without
+export RSYNC_OLD_ARGS=1
 
 # conditional environment variables
 if [[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]]; then
@@ -58,13 +60,13 @@ if command -v nvim &> /dev/null; then
   export MANPAGER="nvim +Man!"
 fi
 
-# zshconfig() {
-#   {1:-code} "$HOME/.zshrc"
-# }
+zshconfig() {
+  ${1:-code} "$HOME/.zshrc"
+}
 
-# sshconfig() {
-#   {1:-code} "$HOME/.ssh/config"
-# }
+sshconfig() {
+  ${1:-code} "$HOME/.ssh/config"
+}
 
 uvman() {
   if [[ $# -lt 1 ]]; then
