@@ -11,33 +11,31 @@ fi
 
 
 plugins=(
-  brew
   # colored-man-pages
   # docker
   # docker-compose
   # extract
+  # vi-mode
+  # z
+  brew
+  dnf
   git
   macos
+  mise
   pip
   python
+  ssh
+  tailscale
   tmux
   ubuntu
-  # vi-mode
-  zsh-vi-mode
   vscode
-  # z
   zoxide
-
-  # trial
-  ssh
-  # pyenv
-  mise
 
   # custom plugins
   # zsh-syntax-highlighting # slow af on wsl/ssh
   fast-syntax-highlighting
   zsh-autosuggestions # supposed to be sourced last but idk
-
+  zsh-vi-mode
 )
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -102,7 +100,7 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 alias vim='nvim'
 alias sen='yt-dlp -S "res:720"'
 alias ayt='yt-dlp -f "ba" -S "ext" --embed-thumbnail --embed-metadata -o "%(uploader)s-%(title)s-[%(id)s].%(ext)s" --no-restrict-filenames'
-alias aytv='yt-dlp --remux-video mkv --embed-thumbnail --embed-metadata -o "%(uploader)s-%(title)s-[%(id)s].%(ext)s"'
+alias aytv="yt-dlp --remux-video mkv --embed-thumbnail --embed-metadata -o '%(uploader)s-%(title)s-[%(id)s].%(ext)s' -S 'vcodec:vp9'"
 alias dim='echo $(tput cols) columns x $(tput lines) rows'
 alias transfer='rsync -vahP'
 alias stop='ssh -O stop'
@@ -132,19 +130,10 @@ function zvm_after_init() {
 #   fd --type d --hidden --follow --exclude ".git" . "$1"
 # }
 
-
-# now run automatically in iterm2
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# pnpm
-export PNPM_HOME="/Users/spring/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/spring/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
+
