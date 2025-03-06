@@ -1,5 +1,27 @@
 return {
-  -- rose-pine
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+      -- colorscheme = "rose-pine",
+      -- colorscheme = "gruvbox",
+    },
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    -- lazy = true,
+    opts = {
+      -- transparent_background = true,
+      color_overrides = {
+        mocha = {
+          base = "#141414",
+          --       crust = "#161616",
+          --       mantle = "#181818",
+        },
+      },
+    },
+  },
   -- {
   --   "rose-pine/neovim",
   --   lazy = true,
@@ -16,38 +38,11 @@ return {
   --     })
   --   end,
   -- },
-  -- catppuccin
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    -- lazy = true,
-    -- opts = {
-    --   color_overrides = {
-    --     mocha = {
-    --       base = "#141414",
-    --       crust = "#161616",
-    --       mantle = "#181818",
-    --     },
-    --   },
-    -- },
-    -- lazy = true,
-    opts = { transparent_background = true },
-  },
-  -- gruvbox
-  {
-    "ellisonleao/gruvbox.nvim",
-    lazy = true,
-    opts = {},
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      -- colorscheme = "rose-pine",
-      colorscheme = "catppuccin",
-      -- colorscheme = "gruvbox",
-    },
-  },
-  -- TOKYO NIGHT transparency
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   lazy = true,
+  --   opts = {},
+  -- },
   {
     "folke/tokyonight.nvim",
     enabled = false,

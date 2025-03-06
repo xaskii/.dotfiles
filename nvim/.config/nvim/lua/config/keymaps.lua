@@ -23,3 +23,5 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" 
 vim.keymap.set({ "n", "v" }, "<leader>Y", [["+y$]], { desc = "Yank until end of line to clipboard" })
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to clipboard" })
+
+vim.keymap.set("n", "<leader>gg", require("neogit").open, { desc = "Open Neogit" })
