@@ -42,12 +42,23 @@ return {
   },
   {
     "saghen/blink.cmp",
-    -- enabled = function()
-    --   return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
-    --     and vim.bo.buftype ~= "prompt"
-    --     and vim.b.completion ~= false
-    -- end,
-    opts = {},
+    enabled = function()
+      return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
+        and vim.bo.buftype ~= "prompt"
+        and vim.b.completion ~= false
+    end,
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      sources = {
+        default = { "lsp", "path", "buffer" },
+      },
+    },
+  },
+  {
+    "rafamadriz/friendly-snippets",
+    -- add blink.compat to dependencies
+    enabled = false,
   },
   {
     "nvim-lspconfig",
