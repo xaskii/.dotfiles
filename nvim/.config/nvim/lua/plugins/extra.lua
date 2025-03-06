@@ -79,14 +79,13 @@ return {
   },
   {
     "stevearc/conform.nvim",
+    ---@module 'conform'
     ---@class conform.setupOpts
     opts = {
       formatters_by_ft = {
-        -- sh = { "shellharden" },
-        nix = { "nixpkgs-fmt" },
         markdown = { "prettierd" },
-        -- json = { "prettierd" },
         json = { "biome" },
+        jsonc = { "biome" },
       },
     },
   },
