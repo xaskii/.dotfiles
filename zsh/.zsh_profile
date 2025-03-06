@@ -18,7 +18,6 @@ prependPath "$HOME/local/bin"
 prependPath "$HOME/.spicetify"
 prependPath "$HOME/.iterm2"
 prependPath "$HOME/.ghcup/bin"
-prependPath "/Applications/MacPorts/Emacs.app/Contents/MacOS"
 prependPath "$HOME/.emacs.d/bin"
 
 export MANPATH="$MANPATH:$HOME/.local/share/man"
@@ -26,8 +25,6 @@ export MANPATH="$MANPATH:$HOME/.local/share/man"
 # export CC="clang"
 # export CXX="clang++"
 
-# volta pnpm support
-export VOLTA_FEATURE_PNPM=1
 # brew
 export HOMEBREW_DISPLAY_INSTALL_TIMES=1
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -52,8 +49,8 @@ if command -v vivid &> /dev/null; then
 fi
 
 if command -v gls &> /dev/null; then
-  alias ls="gls -N --color=auto"
-  # alias ls="gls --hyperlink=auto -N --color=auto"
+  # alias ls="gls -N --color=auto"
+  alias ls="gls --hyperlink=auto -N --color=auto"
 fi
 
 if command -v nvim &> /dev/null; then
