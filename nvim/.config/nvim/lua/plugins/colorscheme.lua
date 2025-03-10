@@ -13,13 +13,13 @@ return {
     -- lazy = true,
     opts = {
       -- transparent_background = true,
-      color_overrides = {
-        mocha = {
-          base = "#141414",
-          --       crust = "#161616",
-          --       mantle = "#181818",
-        },
-      },
+      -- color_overrides = {
+      --   mocha = {
+      --     base = "#141414",
+      --     --       crust = "#161616",
+      --     --       mantle = "#181818",
+      --   },
+      -- },
     },
   },
   -- {
