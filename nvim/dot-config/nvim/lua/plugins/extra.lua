@@ -69,16 +69,16 @@ return {
       inlay_hints = { enabled = false },
     },
   },
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   opts = {
-  --     linters_by_ft = {
-  --       sh = { "shellcheck" },
-  --       bash = { "shellcheck" },
-  --       zsh = { "shellcheck" },
-  --     },
-  --   },
-  -- },
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        sh = { "shellcheck" },
+        bash = { "shellcheck" },
+        zsh = { "shellcheck" },
+      },
+    },
+  },
   {
     "stevearc/conform.nvim",
     ---@module 'conform'
