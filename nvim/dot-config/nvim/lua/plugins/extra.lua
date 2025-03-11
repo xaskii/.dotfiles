@@ -48,12 +48,14 @@ return {
         and vim.b.completion ~= false
     end,
     ---@module 'blink.cmp'
+    ---@param opts blink.cmp.Config
+    config = function(_, opts)
+      opts.sources.default = { "lsp" }
+      return opts
+    end,
+    ---@module 'blink.cmp'
     ---@type blink.cmp.Config
-    opts = {
-      sources = {
-        default = { "lsp", "path", "buffer" },
-      },
-    },
+    opts = {},
   },
   {
     "rafamadriz/friendly-snippets",
@@ -67,16 +69,16 @@ return {
       inlay_hints = { enabled = false },
     },
   },
-  {
-    "mfussenegger/nvim-lint",
-    opts = {
-      linters_by_ft = {
-        sh = { "shellcheck" },
-        bash = { "shellcheck" },
-        zsh = { "shellcheck" },
-      },
-    },
-  },
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   opts = {
+  --     linters_by_ft = {
+  --       sh = { "shellcheck" },
+  --       bash = { "shellcheck" },
+  --       zsh = { "shellcheck" },
+  --     },
+  --   },
+  -- },
   {
     "stevearc/conform.nvim",
     ---@module 'conform'
@@ -84,9 +86,11 @@ return {
     opts = {
       formatters_by_ft = {
         markdown = { "prettierd" },
+        javascript = { "biome" },
         json = { "biome" },
         jsonc = { "biome" },
       },
+      formatters = {},
     },
   },
 
@@ -159,6 +163,7 @@ return {
     -- ft = "markdown", -- if you want all markdown files to load obsidian.nvim
     event = {
       "BufReadPre " .. vim.fn.expand("~") .. "/winter/obsidian/*.md",
+      "BufReadPre " .. vim.fn.expand("~") .. "/winter/life/*.md",
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
