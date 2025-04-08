@@ -2,6 +2,7 @@ return {
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   {
     "folke/snacks.nvim",
+    ---@module 'snacks'
     ---@type snacks.Config
     opts = {
       dashboard = { enabled = false },
@@ -10,13 +11,14 @@ return {
       indent = {
         indent = { char = "▏" },
         animate = { enabled = false },
-        scope = { enabled = false },
+        scope = { enabled = false, char = "▏" },
       },
     },
   },
   {
-    -- stop insta showing marks and registers
     "folke/which-key.nvim",
+    ---@module 'which-key'
+    ---@class wk.Config
     opts = {
       ---@type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
       delay = function(ctx)
@@ -33,32 +35,22 @@ return {
   {
     "folke/noice.nvim",
     enabled = false,
+    ---@module 'noice'
+    ---@type NoiceConfig
     opts = {
       -- messages = { view_search = false },
-      cmdline = {
-        view = "cmdline",
+      routes = {
+        -- { filter = { event = "notify", find = "No information available" }, opts = { skip = true } }, -- needed when using 'notify'
       },
+      cmdline = { view = "cmdline" },
       presets = {
         lsp_doc_border = true,
-        command_palette = true,
+        command_palette = false,
       },
     },
-    -- TODO: combine this stuff with above eventually, but no noice solves the initial problem
-    -- opts = function(_, opts)
-    -- needed when nvim-notify enabled
-    -- table.insert(opts.routes, {
-    --   filter = {
-    --     event = "notify",
-    --     find = "No information available",
-    --   },
-    --   opts = { skip = true },
-    -- })
-    -- opts.cmdline = { view = "cmdline" }
-    -- opts.presets.lsp_doc_border = true
-    -- opts.presets.command_palette = false
-    -- end,
   },
   {
     "hiphish/rainbow-delimiters.nvim",
+    event = "BufReadPre",
   },
 }

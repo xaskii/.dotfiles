@@ -36,16 +36,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "markdown", "json", "jsonc", "yaml" },
   callback = function()
     vim.b.conceallevel = 0
-    -- no idea what's going on with `vim.b` vs `vim.bo`
     vim.bo.tabstop = 2
-  end,
-})
-
--- Disable indentation guides for man pages + more
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-  pattern = { "man", "noice", "undotree" },
-  callback = function()
-    vim.b.miniindentscope_disable = true
   end,
 })
 
@@ -53,17 +44,28 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "help", "man" },
   callback = function()
-    vim.b.wrap = true
+    vim.opt.wrap = true
   end,
 })
 
 -- obsidian vault settings
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   pattern = { "*/winter/obsidian/*.md" },
   callback = function()
-    vim.opt_local.conceallevel = 2
+    vim.opt.conceallevel = 0
     vim.b.autoformat = true
     vim.b.completion = false
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { vim.fn.expand("~") .. "/.config/kitty/kitty.conf" },
+  callback = function()
+    vim.system({ "kill", "-SIGUSR1", vim.env.KITTY_PID }, { text = true }, function(ret)
+      vim.schedule(function()
+        vim.notify("Reloaded kitty config. pid=" .. vim.env.KITTY_PID .. " code=" .. ret.code)
+      end)
+    end)
   end,
 })
 

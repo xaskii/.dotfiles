@@ -27,8 +27,8 @@ vim.opt.listchars = {
   -- space = "·",
 }
 
-vim.opt.scrolloff = 4
-vim.opt.wrap = true
+-- vim.opt.scrolloff = 4
+-- vim.opt.wrap = true
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.breakindent = true -- so important omg I didn't know about this
 vim.opt.linebreak = true
