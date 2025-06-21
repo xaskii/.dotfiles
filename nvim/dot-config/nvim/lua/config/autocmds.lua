@@ -61,9 +61,9 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   pattern = { vim.fn.expand("~") .. "/.config/kitty/kitty.conf" },
   callback = function()
-    vim.system({ "kill", "-SIGUSR1", vim.env.KITTY_PID }, { text = true }, function(ret)
+    vim.system({ "kill", "-SIGUSR1", vim.env.KITTY_PID }, { text = true }, function(res)
       vim.schedule(function()
-        vim.notify("Reloaded kitty config. pid=" .. vim.env.KITTY_PID .. " code=" .. ret.code)
+        vim.notify("Reloaded kitty config. pid=" .. vim.env.KITTY_PID .. " code=" .. res.code)
       end)
     end)
   end,

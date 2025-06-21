@@ -80,8 +80,8 @@ return {
       formatters_by_ft = {
         markdown = { "prettier" },
         javascript = { "biome" },
-        json = { "biome" },
-        jsonc = { "biome" },
+        json = { "prettier" },
+        jsonc = { "prettier" },
       },
       formatters = {},
     },

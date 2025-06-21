@@ -10,16 +10,10 @@ for x in "$PERSONAL"/*; do
   source "$x"
 done
 
-prependPath "/usr/local/go/bin"
-prependPath "$HOME/go/bin"
-prependPath "$HOME/bin"
-prependPath "$HOME/.local/bin"
-prependPath "$HOME/local/bin"
-prependPath "$HOME/.spicetify"
-prependPath "$HOME/.iterm2"
+prependPath "$HOME/.go/bin"
 prependPath "$HOME/.ghcup/bin"
-prependPath "$HOME/.emacs.d/bin"
-
+prependPath "$HOME/.cargo/bin"
+prependPath "$HOME/.local/bin"
 export MANPATH="$MANPATH:$HOME/.local/share/man"
 
 # export CC="clang"
@@ -29,7 +23,7 @@ export MANPATH="$MANPATH:$HOME/.local/share/man"
 export HOMEBREW_DISPLAY_INSTALL_TIMES=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 # rsync autocomplete broken without
-export RSYNC_OLD_ARGS=1
+# export RSYNC_OLD_ARGS=1
 
 # conditional environment variables
 if [[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]]; then
@@ -40,13 +34,14 @@ fi
 #   eval "$(gdircolors)"
 # fi
 # sets LS_COLORS for pretty much all directory listing tools except for BSD ls
-if command -v vivid &> /dev/null; then
+# if command -v vivid &> /dev/null; then
   # shellcheck disable=SC2155
   # export LS_COLORS="$(vivid generate tokyonight-storm)"
-  export LS_COLORS="$(vivid generate catppuccin-mocha)"
+  # export LS_COLORS="$(vivid generate catppuccin-mocha)"
   # export LS_COLORS="$(vivid generate catppuccin-latte)"
   # export LS_COLORS="$(vivid generate gruvbox-dark)"
-fi
+  # export LS_COLORS="$(vivid generate one-dark)"
+# fi
 
 if command -v gls &> /dev/null; then
   # alias ls="gls -N --color=auto"

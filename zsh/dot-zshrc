@@ -4,10 +4,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # has to be sourced before oh-my-zsh so completions get refreshed
-if command -v brew &> /dev/null; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
-  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
-fi
+# if command -v brew &> /dev/null; then
+#   FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+#   FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+# fi
 
 
 plugins=(
@@ -24,8 +24,8 @@ plugins=(
   mise
   pip
   python
+  sdk
   ssh
-  tailscale
   tmux
   ubuntu
   vscode
@@ -68,13 +68,12 @@ ZSHZ_TILDE=1
 ZSHZ_CASE=smart
 
 function zvm_config() {
-  # ZVM_CURSOR_STYLE_ENABLED=false
-  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_CURSOR_STYLE_ENABLED=true
   ZVM_VI_EDITOR=nvim
 }
 
 # VI_MODE_SET_CURSOR=true
-VI_MODE_DISABLE_CLIPBOARD=true
+# VI_MODE_DISABLE_CLIPBOARD=true
 # VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true # SLOW
 
 
@@ -93,6 +92,14 @@ source $HOME/.zsh_profile
 # export ARCHFLAGS="-arch x86_64"
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+alias ghostconf='vim "$HOME/.config/ghostty/config"'
+alias kittyconf='vim "$HOME/.config/kitty/kitty.conf"'
+alias zshconf='vim ~/.zshrc'
+alias fishconf='vim "$HOME/.config/fish/config.fish"'
+alias sshconf='vim "$HOME/.ssh/config"'
+alias i3conf='vim "$HOME/.config/i3/config"'
+alias yaziconf='vim "$HOME/.config/yazi/yazi.toml"'
 
 alias sshclear="fd . ~/.ssh/control -X rm -v"
 alias zshref="omz reload" # 
@@ -129,10 +136,3 @@ function zvm_after_init() {
 # _fzf_compgen_dir() {
 #   fd --type d --hidden --follow --exclude ".git" . "$1"
 # }
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:$HOME/.lmstudio/bin"
