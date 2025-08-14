@@ -60,6 +60,9 @@ return {
     "nvim-lspconfig",
     opts = {
       inlay_hints = { enabled = false },
+      servers = {
+        tsserver = {},
+      },
     },
   },
   {
@@ -80,8 +83,8 @@ return {
       formatters_by_ft = {
         markdown = { "prettier" },
         javascript = { "biome" },
-        json = { "prettier" },
-        jsonc = { "prettier" },
+        json = { "biome" },
+        jsonc = { "biome" },
       },
       formatters = {},
     },

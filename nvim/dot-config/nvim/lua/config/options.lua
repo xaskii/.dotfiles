@@ -24,7 +24,7 @@ vim.opt.listchars = {
   extends = "»",
   precedes = "«",
   nbsp = "░",
-  -- space = "·",
+  space = "·",
 }
 
 -- vim.opt.scrolloff = 4
@@ -48,3 +48,6 @@ vim.opt.showmode = true -- Show current mode (insert, visual, etc.)
 vim.opt.cmdheight = 1 -- Default command line height
 vim.opt.showcmd = true -- Show partial commands in statusline
 vim.opt.ruler = true -- Show cursor position in statusline
+
+vim.g.minipairs_disable = false
+-- vim.g.lazyvim_python_lsp = "basedpyright"

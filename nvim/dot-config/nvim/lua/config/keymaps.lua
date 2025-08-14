@@ -8,10 +8,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- vim.keymap.set("n", "J", "mzJ`z", { desc = "Reflow text (without moving cursor)" })
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Jump half a line down (centered screen)" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Jump half a line up (centered screen)" })
-vim.keymap.set("n", "n", "nzzzv", { desc = "Jump to next search result (centered screen)" })
-vim.keymap.set("n", "N", "Nzzzv", { desc = "Jump to previous search result (centered screen)" })
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Jump half a line down (centered screen)" })
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Jump half a line up (centered screen)" })
+-- vim.keymap.set("n", "n", "nzzzv", { desc = "Jump to next search result (centered screen)" })
+-- vim.keymap.set("n", "N", "Nzzzv", { desc = "Jump to previous search result (centered screen)" })
 
 -- -- save haha
 -- vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { silent = true, desc = "Save buffer" })
