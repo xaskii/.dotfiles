@@ -136,8 +136,3 @@ function zvm_after_init() {
 # _fzf_compgen_dir() {
 #   fd --type d --hidden --follow --exclude ".git" . "$1"
 # }
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/spring/.lmstudio/bin"
-# End of LM Studio CLI section
-
