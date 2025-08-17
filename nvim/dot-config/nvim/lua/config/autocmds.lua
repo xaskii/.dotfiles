@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "markdown", "json", "jsonc", "yaml" },
   callback = function()
-    vim.b.conceallevel = 0
+    vim.opt.conceallevel = 0
     vim.bo.tabstop = 2
   end,
 })
